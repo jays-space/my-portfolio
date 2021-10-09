@@ -4,6 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      gradientColorStops: (theme) => ({
+        primary: "#F64A00",
+      }),
       fontFamily: {
         header: ["Orbitron"],
         body: ["Montserrat"],
@@ -14,9 +17,12 @@ module.exports = {
       backgroundColor: {
         primary: "#F64A00",
       },
-    },
-    backgroundPosition: {
-      "center-right": "center right -26.5rem",
+      height: {
+        full3x: "640%",
+      },
+      backgroundPosition: {
+        "center-right": "center right -26.5rem",
+      },
     },
   },
   variants: {
