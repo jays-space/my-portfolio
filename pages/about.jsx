@@ -20,66 +20,66 @@ const AboutPage = () => {
       {/* Header */}
       <SectionHeader>I design and build digital products.</SectionHeader>
 
-      {/* SubHeader */}
-      <SubHeader>About me.</SubHeader>
+      {/* Profile image */}
+      {/* <ImageSection src="/images/profile.png" alt="Profile picture" /> */}
+      <span className="spacer my-12" />
 
       {/* Caption */}
       <Paragraph caption>
-        I have always had a keen eye for identifying gaps/niches/opportunities
-        in the environment and coming up with novel ways to turn those into
-        relevant and meaningful products. It is then that I fell in love with
-        programming – harnessing the ability to turn an idea into a tangible
-        product whose aim is to offer value to the user.
+        I have always had a keen eye for spotting gaps, niches, and
+        opportunities to develop challenges into novel, relevant, and meaningful
+        products. My passion to create relevant products through software
+        development enhances my ability to turn an idea into a tangible - value
+        adding - product.
       </Paragraph>
 
-      {/* Profile image */}
-      <ImageSection src='/images/profile.png' alt='Profile picture' />
-
-      <Paragraph body>
-        I define myself by the work I want to do and not only by the work have I
-        done - skills can always be taught, however character is intrinsic. I'm
-        naturally inquisitive, quite confident, and I’m continuously working on
-        improving my abilities, one design, program, or product challenge at a
-        time.
+      <Paragraph caption>
+        Skills can always be taught, but character is intrinsic. I'm naturally
+        inquisitive, quite confident, and I’m continuously working on improving
+        my abilities, one challenge at a time.
       </Paragraph>
+
+      {/* <Paragraph body>
+        I am defined by the work that I have produced, as well as what I want to
+        produce. The continual value add of my work moves on with me as my creativity
+        and ideas grow.
+      </Paragraph> */}
+
+      <SubHeader>My Approach.</SubHeader>
+
+      <span className="spacer my-1" />
 
       <Paragraph body>
         I believe it is important to understand both design and development to
-        achieve a successful user-facing product. By involving a front-end
-        developer at the design & prototyping phase, technical challenges can be
-        identified rapidly, producing a more consistent product in the most
-        efficient time.
+        achieve a successful product. By involving a front-end developer at the
+        design and prototyping phase, technical challenges can be identified
+        rapidly, producing a more consistent product in the most efficient
+        manner.
       </Paragraph>
 
       <Paragraph body>
         I am a strong supporter of producing prototypes before fully committing
-        to coding. Each iteration of these prototypes empower the team to
-        establish a continuous feedback loop from stakeholders about the product
-        and at the soonest possible instance, enabling rapid and relevant
-        product development.
+        to coding. Each iteration of a prototype empowers the team to establish
+        a continuous feedback loop from stakeholders about the product, at the
+        soonest possible instance.
       </Paragraph>
 
       <Paragraph body>
-        I am also experienced in building systems that implement business logic
-        and interact with server-side technology via APIs using technologies
-        such as React, React Redux, and Redux-Sagas.
+        I am also experienced in building business logic systems, to interact
+        with servers via APIs, using technologies such as React, React Redux,
+        and Redux-Sagas.
       </Paragraph>
 
-      <Paragraph body>
-        My background in key account management, sales, product development and
-        entrepreneurship enables me to …
-      </Paragraph>
-
-      <Paragraph body>
-        I find it rewarding to use my skills in to contribution to building
+      {/* <Paragraph body>
+        I find it rewarding to use my skills in contributing to building
         meaningful and relevant products that solve some of the societal
         challenges we face in local and global communities, especially with the
         advent of the fourth industrial revolution.
-      </Paragraph>
+      </Paragraph> */}
 
-      <span className='spacer my-5' />
+      <span className="spacer my-5" />
 
-      <CustomLink url='/contact' title="Let's Talk More." />
+      <CustomLink url="/contact" title="Let's Talk More." />
     </CustomScreen>
   );
 };

@@ -14,6 +14,27 @@ body {
 
 .hero-wrapper {
   background-image: url("/images/hero_image.png");
+  /* background-repeat: no-repeat;
+  background-size: auto; */
+}
+
+.bubble-primary-active {
+  transform: scale(1.5);
+  opacity: 0;
+}
+
+.bubble-current-active {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
 }
 /* 
 .tap-to-launch {

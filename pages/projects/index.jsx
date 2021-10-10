@@ -11,10 +11,11 @@ const ProjectsPage = () => {
   return (
     <CustomScreen>
       {/* Header */}
-      <SectionHeader>I design and build digital products.</SectionHeader>
+      {/* <SectionHeader>I design and build digital products.</SectionHeader> */}
+      <SectionHeader>Selected Works.</SectionHeader>
 
       {/* SubHeader */}
-      <SubHeader>Selected Works.</SubHeader>
+      {/* <SubHeader>Selected Works.</SubHeader> */}
 
       {/* Spacer */}
       <span className='spacer my-4' />

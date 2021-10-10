@@ -27,7 +27,7 @@ const ContactPage = () => {
       </Paragraph>
 
       <Paragraph body>
-        Please feel fre to reach out to me on any of the contacts below.
+        Please feel free to reach out to me on any of the contacts below.
       </Paragraph>
 
       <ul>

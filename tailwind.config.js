@@ -4,7 +4,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        "mobile-360": "360px",
+        "mobile-375": "375px",
+      },
       gradientColorStops: (theme) => ({
+        primary: "#F64A00",
+      }),
+      borderColor: (theme) => ({
         primary: "#F64A00",
       }),
       fontFamily: {
@@ -22,6 +29,15 @@ module.exports = {
       },
       backgroundPosition: {
         "center-right": "center right -26.5rem",
+      },
+      transitionDelay: {
+        1: "1ms",
+        400: "400ms",
+        600: "600ms",
+        800: "800ms",
+      },
+      transitionDuration: {
+        10: "10ms",
       },
     },
   },
