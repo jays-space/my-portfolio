@@ -7,6 +7,7 @@ import {
   MainHeader,
   CustomLink,
   Paragraph,
+  Greeting,
 } from "../components/text-utils.components";
 
 export default function Home() {
@@ -57,11 +58,11 @@ export default function Home() {
                 className={`hero-section mt-2 mobile-360:mt-20 mobile-375:mt-36 transition-transform duration-500`}
               >
                 <div className="hero-section flex flex-col">
-                  <span className="text-sm mb-1">Hello.</span>
+                  <Greeting>Hello.</Greeting>
                   <MainHeader noMargin>
                     I'm <CustomLink header url="/about" title="Jay." />
                   </MainHeader>
-                  <MainHeader>Welcome to My Space</MainHeader>
+                  <MainHeader stagger>Welcome to My Space</MainHeader>
                 </div>
 
                 {/* Blurb section */}
@@ -125,9 +126,9 @@ export default function Home() {
 
       <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center">
         <span className="fixed bottom-11 left-6">          
-          <Link href="/">
+          {/* <Link href="/">
             <a>{`< -- Back`}</a>
-          </Link>
+          </Link> */}
         </span>
 
         {/* 

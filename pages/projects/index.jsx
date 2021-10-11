@@ -18,7 +18,7 @@ const ProjectsPage = () => {
       {/* <SubHeader>Selected Works.</SubHeader> */}
 
       {/* Spacer */}
-      <span className='spacer my-4' />
+      <span className='spacer my-20' />
 
       {/* Projects - BV */}
       <ProjectTitle

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Transition } from "@headlessui/react";
 
 /**
  * Renders a global navigation header.
@@ -10,19 +11,31 @@ import { useRouter } from "next/router";
 
 const MainNavigationBar = ({ children }) => {
   const route = useRouter();
+  const { pathname } = route;
+
   return (
     <nav
-      className={` ${
-        route.pathname === "/" || route.pathname === "/home" ? "hidden" : "visible"
-      } flex justify-end w-screen px-6 py-6 fixed`}>
-      <Link href={route.pathname.includes("projects/") ? "./" : "/"}>
-        <a className='home-link font-header font-bold text-sm'>
-          {route.pathname.includes("projects/")
-            ? "jays.space.projects"
-            : "jays.space"}
+      className={`flex justify-end w-screen px-6 py-6 fixed z-50 transition-opacity duration-700 ease-in-out ${
+        pathname === "/" || pathname === "/home" ? "opacity-0" : "opacity-100"
+      }`}
+    >
+      <Link href={pathname.includes("projects/") ? "./" : "/home"}>
+        <a className="home-link font-header font-bold text-sm">
+          <Transition
+            show={true}
+            appear={true}
+            enter="transition-opacity duration-700 ease-in-out"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-700"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            jays.space
+          </Transition>
         </a>
       </Link>
-      <section className='content'>{children}</section>
+      <section className="content">{children}</section>
     </nav>
   );
 };

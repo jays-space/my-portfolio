@@ -1,7 +1,7 @@
 .content {
     opacity: 0;
     background-color: cornflowerblue;
-    transition: 500ms;
+    transition: 300ms;
   }
   
   .fadeIn {

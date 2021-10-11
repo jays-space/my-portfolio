@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Transition } from "@headlessui/react";
 
-export const MainHeader = ({ noMargin, children }) => {
+export const Greeting = ({ children }) => {
   return (
     <Transition show={true} appear={true}>
       <Transition.Child
-        enter="transition-all duration-1000 delay-100 ease-in-out"
-        enterFrom="opacity-0 translate-y-12"
+        enter="transition-opacity duration-500 delay-1800 ease-in-out"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-500"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <span className="text-sm mb-1">{children}</span>
+      </Transition.Child>
+    </Transition>
+  );
+};
+
+export const MainHeader = ({ noMargin, stagger, children }) => {
+  return (
+    <Transition show={true} appear={true}>
+      <Transition.Child
+        enter={`transition-all duration-1000 ease-in-out ${
+          stagger ? "delay-800" : "delay-150"
+        }`}
+        enterFrom={`opacity-0 ${stagger ? "translate-y-4" : "translate-y-8"}`}
         enterTo="opacity-100 translate-y-0"
         leave="transition-opacity duration-1000"
         leaveFrom="opacity-100"
@@ -25,7 +44,66 @@ export const MainHeader = ({ noMargin, children }) => {
 };
 
 export const SectionHeader = ({ children }) => {
-  return <h1 className={`font-header text-5xl font-bold mb-52`}>{children}</h1>;
+  const [scrolledToTop, setScrolledToTop] = useState(false);
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowArrow(true);
+    }, 2000);
+  });
+
+  useEffect(() => {
+    window.onscroll = function () {
+      if (window.pageYOffset >= 100) {
+        setScrolledToTop(true);
+      } else {
+        setScrolledToTop(false);
+      }
+    };
+
+    return () => {
+      window.onscroll = null;
+    };
+  }, [setScrolledToTop]);
+
+  return (
+    <Transition show={true} appear={true}>
+      <Transition.Child
+        enter={`transition-all duration-1000 ease-in-out delay-500`}
+        enterFrom={`opacity-0 translate-y-8`}
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-opacity duration-1000"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <span className="flex flex-col justify-between">
+          <h1 className={`font-header text-5xl font-bold mb-52`}>{children}</h1>
+          {/* 
+            //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
+            //TODO: Smooth animate the arrow on page mount 
+          */}
+          <span
+            className={`fixed bottom-6 right-0 flex justify-end pr-6 mt-8 transition-opacity duration-500 ${
+              scrolledToTop ? "opacity-0" : "opacity-100"
+            } ${showArrow ? "flex" : "hidden"}`}
+          >
+            <svg
+              className="animate-bounce w-6 h-6 text-amber-900"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </span>
+        </span>
+      </Transition.Child>
+    </Transition>
+  );
 };
 
 export const SubHeader = ({ project, children }) => {
@@ -67,18 +145,30 @@ export const ProjectHeader = ({ title, subtitle, image, alt }) => {
   );
 };
 
-export const CustomLink = ({ url, title, header }) => {
+export const CustomLink = ({ url, title, header, newTab }) => {
   return (
     <Link href={url}>
-      <a>
-        {header ? (
-          <span className="inline text-primary font-semibold">{title}</span>
-        ) : (
-          <span className="inline text-primary font-semibold text-base font-header">
-            {title}
-          </span>
-        )}
-      </a>
+      {newTab ? (
+        <a target="_blank">
+          {header ? (
+            <span className="inline text-primary font-semibold">{title}</span>
+          ) : (
+            <span className="inline text-primary font-semibold text-base font-header">
+              {title}
+            </span>
+          )}
+        </a>
+      ) : (
+        <a>
+          {header ? (
+            <span className="inline text-primary font-semibold">{title}</span>
+          ) : (
+            <span className="inline text-primary font-semibold text-base font-header">
+              {title}
+            </span>
+          )}
+        </a>
+      )}
     </Link>
   );
 };
@@ -91,17 +181,53 @@ export const Paragraph = ({
   project,
   children,
 }) => {
-  return (
-    <p
-      className={`font-body text-base max-w-prose ${
-        body ? "mb-8 pr-6" : "my-4"
-      } ${project && "mt-2 mb-4 pr-6"} ${
-        caption && "italic text-gray-500 font-semibold pr-6"
-      } ${justify && "text-justify"}`}
-    >
-      {children}
-    </p>
-  );
+  if (hero) {
+    return (
+      <Transition show={true} appear={true}>
+        <Transition.Child
+          enter="transition-opacity duration-500 delay-1800 ease-in-out"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-500"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <p
+            className={`font-body text-base max-w-prose ${
+              body ? "mb-8 pr-6" : "my-4"
+            } ${project && "mt-2 mb-4 pr-6"} ${
+              caption && "italic text-gray-500 font-semibold pr-6"
+            } ${justify && "text-justify"}`}
+          >
+            {children}
+          </p>
+        </Transition.Child>
+      </Transition>
+    );
+  } else {
+    return (
+      <Transition show={true} appear={true}>
+        <Transition.Child
+          enter="transition-opacity duration-1000 delay-1200 ease-in-out"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <p
+            className={`font-body text-base max-w-prose ${
+              body ? "mb-8 pr-6" : "my-4"
+            } ${project && "mt-2 mb-4 pr-6"} ${
+              caption && "italic text-gray-500 font-semibold pr-6"
+            } ${justify && "text-justify"}`}
+          >
+            {children}
+          </p>
+        </Transition.Child>
+      </Transition>
+    );
+  }
 };
 
 export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {

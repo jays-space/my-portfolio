@@ -20,7 +20,9 @@ export default function Landing() {
           </MainHeader>
         </div>
         <span className="mb-5 text-right text-xs text-gray-300">
-          <Link href='/home'><a>{`Forward -->`}</a></Link>
+          <Link href="/home">
+            <span className="fixed right-6 animate-ping h-6 w-6 rounded-full bg-current opacity-75"></span>
+          </Link>
         </span>
       </div>
     </div>
