@@ -29,17 +29,37 @@ export default function Landing() {
       </Head>
 
       <div className={`flex`}>
+        {/* Background image */}
         <main
-          className={`w-screen bg-auto bg-no-repeat bg-center flex flex-col transition-transform duration-300 ease-in-out delay-300 ${
+          className={`w-screen bg-cover bg-no-repeat bg-center flex flex-col transition-transform duration-300 ease-in-out delay-300 ${
             navHidden ? "translate-x-0" : "-translate-x-2/3"
           } ${!heroSection ? "bg-primary" : "hero-wrapper"} `}
         >
+          {/*
+            //* hero section overlay: the contrast between the image and blurb text makes is such that the text is hard to read
+          */}
           <div
-            className={`${
-              heroSection &&
-              "hero-gradient bg-gradient-to-r from-black to-transparent"
-            } flex flex-col pl-6 pr-6 pt-6 h-screen justify-center`}
+            className={`fixed left-0 top-0 bg-black w-screen h-screen opacity-40 ${
+              heroSection ? "visible" : "hidden"
+            }`}
+          />
+
+          {/* Background gradient */}
+          <div
+            className={`flex flex-col pl-6 pr-6 pt-6 h-screen justify-center z-20 ${
+              heroSection && "hero-gradient bg-gradient-to-r from-black"
+            }`}
           >
+            {/*
+              //* hero section darkens when nav is open
+              //! Cannot access elements on screen (other than nav btns) because the z-index is higher
+             */}
+            <div
+              className={`darken-on-nav-active fixed left-0 top-0 bg-black w-screen h-screen z-10 transition-opacity duration-300 delay-300 ${
+                navHidden ? "opacity-0" : "opacity-80"
+              } ${heroSection ? "visible" : "hidden"}`}
+            />
+
             {/* Intro screen */}
             {!heroSection && (
               <div className={`flex flex-col h-full justify-between`}>
@@ -61,7 +81,11 @@ export default function Landing() {
             {heroSection && (
               <div className="flex flex-col h-full justify-between">
                 {/* Hero section */}
-                <section className="hero-section mt-2 mobile-360:mt-20 mobile-375:mt-36">
+                <section
+                  className={`hero-section mt-2 translate-y-40 mobile-360:mt-20 mobile-375:mt-36 transition-transform duration-500 ${
+                    heroSection && "translate-y-0"
+                  }`}
+                >
                   <div className="hero-section flex flex-col">
                     <span className="text-sm mb-1">Hello.</span>
                     <MainHeader noMargin>
@@ -84,6 +108,7 @@ export default function Landing() {
           </div>
         </main>
 
+        {/* Navigation section */}
         <nav
           className={`flex items-center fixed h-screen w-2/3 right-0 bg-primary p-6 transition-transform duration-300 ease-in-out delay-300 ${
             navHidden ? "translate-x-full" : "translate-x-0"
@@ -129,14 +154,15 @@ export default function Landing() {
 
       {/* Nav buttons */}
       {heroSection && (
-        <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center z-20">
-          {/* <span onClick={toggleHero}> {`< -- Back`}</span> */}
+        <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center">
+          <span className="fixed bottom-10 left-6" onClick={toggleHero}>{`< -- Back`}</span>
 
+          {/* 
+            //* Bubble sits behind the button - controls the effect that occures when the button is pressed 
+          */}
           <span
-            className={`fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
-              navHidden
-                ? "bg-primary bubble-primary-active"
-                : "bg-current"
+            className={`bubble fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
+              navHidden ? "bg-primary bubble-primary-active" : "bg-current"
             }`}
           />
           <span
