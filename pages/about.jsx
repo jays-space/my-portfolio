@@ -77,7 +77,7 @@ const AboutPage = () => {
         advent of the fourth industrial revolution.
       </Paragraph> */}
 
-      <span className="spacer my-5" />
+      {/* <span className="spacer my-5" /> */}
 
       <CustomLink url="/contact" title="Let's Talk More." />
     </CustomScreen>

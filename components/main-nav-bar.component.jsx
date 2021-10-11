@@ -31,7 +31,7 @@ const MainNavigationBar = ({ children }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            jays.space
+            jays.space.
           </Transition>
         </a>
       </Link>
