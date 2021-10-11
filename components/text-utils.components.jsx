@@ -1,12 +1,26 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Transition } from "@headlessui/react";
 
 export const MainHeader = ({ noMargin, children }) => {
   return (
-    <h1 className={`font-header text-5xl font-bold ${noMargin ? "" : "mt-4"}`}>
-      {children}
-    </h1>
+    <Transition show={true} appear={true}>
+      <Transition.Child
+        enter="transition-all duration-1000 delay-100 ease-in-out"
+        enterFrom="opacity-0 translate-y-12"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-opacity duration-1000"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <h1
+          className={`font-header text-5xl font-bold ${noMargin ? "" : "mt-4"}`}
+        >
+          {children}
+        </h1>
+      </Transition.Child>
+    </Transition>
   );
 };
 
@@ -19,7 +33,8 @@ export const SubHeader = ({ project, children }) => {
     <h3
       className={`font-header font-bold text-primary ${
         project ? "text-lg mt-8" : "text-2xl mt-6"
-      }`}>
+      }`}
+    >
       {children}
     </h3>
   );
@@ -27,9 +42,9 @@ export const SubHeader = ({ project, children }) => {
 
 export const ProjectHeader = ({ title, subtitle, image, alt }) => {
   return (
-    <span className='flex flex-col mb-16'>
+    <span className="flex flex-col mb-16">
       {/* Header and subtitle */}
-      <div className='flex flex-col mt-4 mb-12'>
+      <div className="flex flex-col mt-4 mb-12">
         <span className={`font-header text-4xl font-bold`}>{title}</span>
         <p className={`text-primary text-sm max-w-prose mt-4 pr-6`}>
           {subtitle}
@@ -37,14 +52,14 @@ export const ProjectHeader = ({ title, subtitle, image, alt }) => {
       </div>
 
       {/* Image */}
-      <div className='h-56 overflow-hidden'>
-        <div className='w-full h-full relative'>
+      <div className="h-56 overflow-hidden">
+        <div className="w-full h-full relative">
           <Image
             src={image}
             alt={alt}
-            layout='fill'
-            objectFit='cover'
-            className='rounded-tl-lg rounded-bl-lg'
+            layout="fill"
+            objectFit="cover"
+            className="rounded-tl-lg rounded-bl-lg"
           />
         </div>
       </div>
@@ -57,9 +72,9 @@ export const CustomLink = ({ url, title, header }) => {
     <Link href={url}>
       <a>
         {header ? (
-          <span className='inline text-primary font-semibold'>{title}</span>
+          <span className="inline text-primary font-semibold">{title}</span>
         ) : (
-          <span className='inline text-primary font-semibold text-base font-header'>
+          <span className="inline text-primary font-semibold text-base font-header">
             {title}
           </span>
         )}
@@ -82,7 +97,8 @@ export const Paragraph = ({
         body ? "mb-8 pr-6" : "my-4"
       } ${project && "mt-2 mb-4 pr-6"} ${
         caption && "italic text-gray-500 font-semibold pr-6"
-      } ${justify && "text-justify"}`}>
+      } ${justify && "text-justify"}`}
+    >
       {children}
     </p>
   );
@@ -90,24 +106,24 @@ export const Paragraph = ({
 
 export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
   return (
-    <div className='mb-20'>
+    <div className="mb-20">
       <Link href={link}>
-        <span className='flex flex-col'>
+        <span className="flex flex-col">
           {/* Image */}
-          <div className='h-28 overflow-hidden'>
-            <div className='w-full h-full relative'>
+          <div className="h-28 overflow-hidden">
+            <div className="w-full h-full relative">
               <Image
                 src={image}
                 alt={alt}
-                layout='fill'
-                objectFit='cover'
-                className='rounded-tl-lg rounded-bl-lg'
+                layout="fill"
+                objectFit="cover"
+                className="rounded-tl-lg rounded-bl-lg"
               />
             </div>
           </div>
 
           {/* Header and subtitle */}
-          <div className='flex flex-col mt-4'>
+          <div className="flex flex-col mt-4">
             <span className={`font-header text-lg font-bold`}>{title}</span>
             <p className={`text-primary text-sm max-w-prose mt-1 pr-6`}>
               {subtitle}
