@@ -13,7 +13,7 @@ const MainNavigationBar = ({ children }) => {
   return (
     <nav
       className={` ${
-        route.pathname === "/" ? "hidden" : "visible"
+        route.pathname === "/" || route.pathname === "/home" ? "hidden" : "visible"
       } flex justify-end w-screen px-6 py-6 fixed`}>
       <Link href={route.pathname.includes("projects/") ? "./" : "/"}>
         <a className='home-link font-header font-bold text-sm'>
