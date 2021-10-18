@@ -49,7 +49,7 @@ const ContactPage = () => {
         Please feel free to reach out to me on any of the contacts below.
       </Paragraph>
 
-      <Transition show={true} appear={true}>
+      <Transition show={true} appear={true} className='z-50'>
         <Transition.Child
           enter="transition-opacity duration-1000 delay-1200 ease-in-out"
           enterFrom="opacity-0"

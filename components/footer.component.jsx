@@ -8,10 +8,10 @@ const Footer = ({ children }) => {
   return (
     <footer
       className={`flex justify-end p-6 transition-opacity duration-300 delay-1200 ${
-        route.pathname === "/" ? "opacity-0" : "opacity-100"
+        route.pathname === "/" || route.pathname === "/home" ? "opacity-0 hidden" : "opacity-100 visible"
       } `}
     >
-      {pathname === "/about" && (
+      {/* {pathname === "/about" && (
         <Link href="/projects/">
           <span className="inline font-semibold text-base font-header border-b-2">
             projects.
@@ -32,7 +32,7 @@ const Footer = ({ children }) => {
             about.
           </span>
         </Link>
-      )}
+      )} */}
     </footer>
   );
 };

@@ -82,11 +82,13 @@ export const SectionHeader = ({ children }) => {
           {/* 
             //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
             //TODO: Smooth animate the arrow on page mount 
+
+            ${showArrow ? "flex" : "hidden"}
           */}
           <span
-            className={`fixed bottom-6 right-0 flex justify-end pr-6 mt-8 transition-opacity duration-500 ${
+            className={`fixed h-12 w-80 mt-52 flex justify-center items-center transition-opacity duration-500 ${
               scrolledToTop ? "opacity-0" : "opacity-100"
-            } ${showArrow ? "flex" : "hidden"}`}
+            }`}
           >
             <svg
               className="animate-bounce w-6 h-6 text-amber-900"
@@ -149,7 +151,7 @@ export const CustomLink = ({ url, title, header, newTab }) => {
   return (
     <Link href={url}>
       {newTab ? (
-        <a target="_blank">
+        <a target="_blank" className='z-50'>
           {header ? (
             <span className="inline text-primary font-semibold">{title}</span>
           ) : (
@@ -159,7 +161,7 @@ export const CustomLink = ({ url, title, header, newTab }) => {
           )}
         </a>
       ) : (
-        <a>
+        <a className='z-50'>
           {header ? (
             <span className="inline text-primary font-semibold">{title}</span>
           ) : (
@@ -232,7 +234,7 @@ export const Paragraph = ({
 
 export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
   return (
-    <div className="mb-20">
+    <div className="mb-20 z-50">
       <Link href={link}>
         <span className="flex flex-col">
           {/* Image */}
