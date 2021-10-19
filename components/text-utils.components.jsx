@@ -44,7 +44,7 @@ export const MainHeader = ({ noMargin, stagger, children }) => {
 };
 
 export const SectionHeader = ({ children }) => {
-  const [scrolledToTop, setScrolledToTop] = useState(false);
+  const [scrolledToTop, setScrolledToTop] = useState(true);
   const [showArrow, setShowArrow] = useState(false);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export const SectionHeader = ({ children }) => {
 
   useEffect(() => {
     window.onscroll = function () {
-      if (window.pageYOffset >= 100) {
+      if (window.scrollY <= 10) {
         setScrolledToTop(true);
       } else {
         setScrolledToTop(false);
@@ -68,43 +68,50 @@ export const SectionHeader = ({ children }) => {
   }, [setScrolledToTop]);
 
   return (
-    <Transition show={true} appear={true}>
-      <Transition.Child
-        enter={`transition-all duration-1000 ease-in-out delay-500`}
-        enterFrom={`opacity-0 translate-y-8`}
-        enterTo="opacity-100 translate-y-0"
-        leave="transition-opacity duration-1000"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <span className="flex flex-col justify-between">
-          <h1 className={`font-header text-5xl font-bold mb-52`}>{children}</h1>
-          {/* 
+    <section className="header-section h-screen">
+      <div
+        className={`fixed top-0 left-0 bg-primary w-screen h-screen transition-opacity duration-700 z-n1 ${
+          scrolledToTop ? "opacity-100" : "opacity-0"
+        }`}
+      />
+      <Transition show={true} appear={true}>
+        <Transition.Child
+          enter={`transition-all duration-1000 ease-in-out delay-500`}
+          enterFrom={`opacity-0 translate-y-8 z-10`}
+          enterTo="opacity-100 translate-y-0 z-10"
+          leave="transition-opacity duration-1000"
+          leaveFrom="opacity-100 z-10"
+          leaveTo="opacity-0 z-10"
+        >
+          <span className="h-screen flex flex-col justify-between mb-72 mt-52 pl-6 z-10">
+            <h1 className={`font-header text-5xl font-bold`}>{children}</h1>
+            {/* 
             //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
             //TODO: Smooth animate the arrow on page mount 
-
+            
             ${showArrow ? "flex" : "hidden"}
           */}
-          <span
-            className={`fixed h-12 w-80 mt-52 flex justify-center items-center transition-opacity duration-500 ${
-              scrolledToTop ? "opacity-0" : "opacity-100"
-            }`}
-          >
-            <svg
-              className="animate-bounce w-6 h-6 text-amber-900"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <span
+              className={`fixed h-12 w-80 mt-80 flex justify-center items-center transition-opacity ease-in-out duration-700 ${
+                scrolledToTop ? "opacity-100" : "opacity-0"
+              }`}
             >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
+              <svg
+                className="animate-bounce w-6 h-6 text-amber-900"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </span>
           </span>
-        </span>
-      </Transition.Child>
-    </Transition>
+        </Transition.Child>
+      </Transition>
+    </section>
   );
 };
 
@@ -151,7 +158,7 @@ export const CustomLink = ({ url, title, header, newTab }) => {
   return (
     <Link href={url}>
       {newTab ? (
-        <a target="_blank" className='z-50'>
+        <a target="_blank" className="z-50">
           {header ? (
             <span className="inline text-primary font-semibold">{title}</span>
           ) : (
@@ -161,7 +168,7 @@ export const CustomLink = ({ url, title, header, newTab }) => {
           )}
         </a>
       ) : (
-        <a className='z-50'>
+        <a className="z-50">
           {header ? (
             <span className="inline text-primary font-semibold">{title}</span>
           ) : (

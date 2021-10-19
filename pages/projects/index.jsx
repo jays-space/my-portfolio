@@ -1,34 +1,36 @@
 import React from "react";
 
 //COMPONENTS
-import { CustomScreen } from "../../components/screen-utils.component";
-import { ProjectTitle, SectionHeader, SubHeader } from "../../components/text-utils.components";
+import { Content } from "../../components/screen-utils.component";
+import {
+  ProjectTitle,
+  SectionHeader,  
+} from "../../components/text-utils.components";
 
 //IMAGES
 import bohemian_vnyla_img from "../../public/images/bohemian_vnyla.png";
 
 const ProjectsPage = () => {
   return (
-    <CustomScreen>
+    <div className="screen flex flex-col">
       {/* Header */}
       {/* <SectionHeader>I design and build digital products.</SectionHeader> */}
       <SectionHeader>Selected Works.</SectionHeader>
 
-      {/* SubHeader */}
-      {/* <SubHeader>Selected Works.</SubHeader> */}
+      <Content>
+        {/* Spacer */}
+        <span className="spacer my-12" />
 
-      {/* Spacer */}
-      <span className='spacer my-20' />
-
-      {/* Projects - BV */}
-      <ProjectTitle
-        link='../projects/bohemian_vnyla'
-        image={bohemian_vnyla_img}
-        alt='bohemian vnyla'
-        title='Bohemian VNYLA'
-        subtitle='A nightlife experience management and curation app.'
-      />
-    </CustomScreen>
+        {/* Projects - BV */}
+        <ProjectTitle
+          link="../projects/bohemian_vnyla"
+          image={bohemian_vnyla_img}
+          alt="bohemian vnyla"
+          title="Bohemian VNYLA"
+          subtitle="A nightlife experience management and curation app."
+        />
+      </Content>
+    </div>
   );
 };
 

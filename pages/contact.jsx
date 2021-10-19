@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 
 //COMPONENTS
-import { CustomScreen } from "../components/screen-utils.component";
+import { Content } from "../components/screen-utils.component";
 import {
   CustomLink,
   Paragraph,
@@ -27,75 +27,71 @@ const ContactPage = () => {
   };
 
   return (
-    <CustomScreen>
+    <div className="screen flex flex-col">
       {/* Header */}
       <SectionHeader>Let's make something special!</SectionHeader>
 
-      {/* Spacer */}
-      <span className="spacer my-12" />
+      <Content>
+        {/* Caption */}
+        <Paragraph caption>
+          I'm seeking out opportunities to collaborate and work with companies /
+          agencies / individuals. I enjoy adding my collective experiences to a
+          team where we can work together to develop solutions to business
+          challenges.
+        </Paragraph>
 
-      {/* SubHeader */}
-      {/* <SubHeader>Contact.</SubHeader> */}
+        <Paragraph body>
+          Please feel free to reach out to me on any of the contacts below.
+        </Paragraph>
 
-      {/* Caption */}
-      <Paragraph caption>
-        I'm seeking out opportunities to collaborate and work with companies /
-        agencies / individuals. I enjoy adding my collective experiences to a
-        team where we can work together to develop solutions to business
-        challenges.
-      </Paragraph>
+        <Transition show={true} appear={true} className="z-50">
+          <Transition.Child
+            enter="transition-opacity duration-1000 delay-1200 ease-in-out"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-500"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <ul>
+              <li className="mb-2 py-1 w-max relative">
+                <span
+                  className="inline text-primary font-semibold text-base font-header"
+                  onClick={copyToClipboard}
+                >
+                  contact.jays.space@gmail.com
+                </span>
 
-      <Paragraph body>
-        Please feel free to reach out to me on any of the contacts below.
-      </Paragraph>
-
-      <Transition show={true} appear={true} className='z-50'>
-        <Transition.Child
-          enter="transition-opacity duration-1000 delay-1200 ease-in-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity duration-500"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <ul>
-            <li className="mb-2 py-1 w-max relative">
-              <span
-                className="inline text-primary font-semibold text-base font-header"
-                onClick={copyToClipboard}
-              >
-                contact.jays.space@gmail.com
-              </span>
-
-              <span
-                className={`absolute bottom-8 right-0 bg-black p-2 text-xs cursor-pointer transition-opacity duration-300 ${
-                  copied ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                Copied to clipboard.
-              </span>
-            </li>
-            <li className="my-2 py-1 w-max">
-              <CustomLink url="#link" title="my resume" />
-            </li>
-            <li className="my-2 py-1 w-max">
-              <CustomLink
-                newTab
-                url="https://www.linkedin.com/in/jay-mondlana-29644067/"
-                title="linkedIn"
-              />
-            </li>
-            <li className="my-2 py-1 w-max">
-              <CustomLink
-                newTab
-                url="https://github.com/jays-space"
-                title="github"
-              />
-            </li>
-          </ul>
-        </Transition.Child>
-      </Transition>
-    </CustomScreen>
+                <span
+                  className={`absolute bottom-8 right-0 bg-black p-2 text-xs cursor-pointer transition-opacity duration-300 ${
+                    copied ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  Copied to clipboard.
+                </span>
+              </li>
+              <li className="my-2 py-1 w-max">
+                <CustomLink url="#link" title="my resume" />
+              </li>
+              <li className="my-2 py-1 w-max">
+                <CustomLink
+                  newTab
+                  url="https://www.linkedin.com/in/jay-mondlana-29644067/"
+                  title="linkedIn"
+                />
+              </li>
+              <li className="my-2 py-1 w-max">
+                <CustomLink
+                  newTab
+                  url="https://github.com/jays-space"
+                  title="github"
+                />
+              </li>
+            </ul>
+          </Transition.Child>
+        </Transition>
+      </Content>
+    </div>
   );
 };
 

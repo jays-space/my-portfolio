@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import "tailwindcss/tailwind.css";
 
 //COMPONENTS
@@ -12,6 +13,8 @@ import "../styles.css";
 
 function MyApp({ Component, pageProps }) {
   const [navHidden, setNavHidden] = useState(true);
+  const route = useRouter();
+  const { pathname } = route;
 
   const showNav = () => {
     setNavHidden(!navHidden);
@@ -33,7 +36,7 @@ function MyApp({ Component, pageProps }) {
           <div
             className={`darken-on-nav-active fixed left-0 top-0 bg-black w-screen h-full z-40 transition-opacity duration-300 delay-300 ${
               navHidden ? "opacity-0" : "opacity-80"
-            }`}
+            } ${pathname === "/" ? "hidden" : "visible"}`}
           />
 
           {/* <TransitionLayout> */}
@@ -43,7 +46,7 @@ function MyApp({ Component, pageProps }) {
 
         {/* Navigation section */}
         <nav
-          className={`flex items-center fixed h-screen w-2/3 right-0 bg-primary p-6 transition-transform duration-300 ease-in-out delay-300 ${
+          className={`flex items-center fixed h-screen w-2/3 right-0 bg-primary p-6 transition-transform duration-300 ease-in-out delay-300 z-50 ${
             navHidden ? "translate-x-full" : "translate-x-0"
           }`}
         >
@@ -91,33 +94,40 @@ function MyApp({ Component, pageProps }) {
       </div>
 
       {/* Nav buttons */}
-      <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center">
-        <div className="fixed bottom-11 left-6">
-          {/* <Link href="/">
+      {/* 
+        //* if not on the index page, show nav button
+       */}
+      {pathname !== "/" && (
+        <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center z-50">
+          <div className="fixed bottom-11 left-6">
+            {/* <Link href="/">
             <a>{`< -- Back`}</a>
           </Link> */}
-        </div>
+          </div>
 
-        {/* 
+          {/* 
             //* Bubble sits behind the button - controls the effect that occures when the button is pressed 
           */}
-        <div
-          className={`bubble fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
-            navHidden ? "bg-primary bubble-primary-active" : "bg-current"
-          }`}
-        />
-        <div
-          className={`nav-icon fixed bottom-7 right-7 w-14 h-14 rounded-full bg-primary transition-colors duration-300 ease-in-out z-10 ${!navHidden && 'open'}`}
-          onClick={showNav}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
+          <div
+            className={`bubble fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
+              navHidden ? "bg-primary bubble-primary-active" : "bg-current"
+            }`}
+          />
+          <div
+            className={`nav-icon fixed bottom-7 right-7 w-14 h-14 rounded-full bg-primary transition-colors duration-300 ease-in-out z-10 ${
+              !navHidden && "open"
+            }`}
+            onClick={showNav}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      )}
       <Footer />
     </div>
   );

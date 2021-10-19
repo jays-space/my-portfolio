@@ -8,6 +8,10 @@ module.exports = {
         "mobile-360": "360px",
         "mobile-375": "375px",
       },
+      zIndex: {
+        'n1': "-1",
+        '50': "50",
+      },
       gradientColorStops: (theme) => ({
         primary: "#F64A00",
       }),

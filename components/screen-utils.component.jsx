@@ -2,11 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { Transition } from "@headlessui/react";
 
-export const CustomScreen = ({ project, children }) => {
+export const Content = ({ project, children }) => {
   return (
-    <div className="screen flex flex-col pl-6 bg-black z-30">
+    <section className="content-section flex flex-col pl-6 bg-black">
       <CustomSection project={project}>{children}</CustomSection>
-    </div>
+      {/* <div className="orange-bg fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-primary via-primary" /> */}
+    </section>
   );
 };
 
@@ -22,7 +23,7 @@ export const CustomSection = ({ project, children }) => {
         leaveTo="opacity-0"
       >
         <section
-          className={`h-full flex flex-col ${project ? "mt-48" : "mt-60"}`}
+          className={`h-full flex flex-col z-30 ${project ? "mt-48" : "mt-0"}`}
         >
           {children}
         </section>

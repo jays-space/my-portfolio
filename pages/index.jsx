@@ -1,11 +1,16 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 //COMPONENTS
 import { MainHeader } from "../components/text-utils.components";
 
 export default function Landing() {
+  const route = useRouter();
+
+  const navigateToHomePage = () => {
+    route.push("/home");
+  };
   return (
     <div>
       <Head>
@@ -13,16 +18,17 @@ export default function Landing() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={`flex flex-col h-screen justify-between bg-primary p-6`}>
+      <div
+        className={`flex flex-col h-screen justify-between bg-primary p-6 z-50`}
+        onClick={navigateToHomePage}
+      >
         <div className="mt-32">
           <MainHeader noMargin>
             Creating amazing spaces one app at a time.
           </MainHeader>
         </div>
-        <span className="mb-5 text-right text-xs text-gray-300">
-          <Link href="/home">
-            <span className="fixed right-6 animate-ping h-6 w-6 rounded-full bg-current opacity-75"></span>
-          </Link>
+        <span className="mb-5 text-center text-sm text-gray-300 animate-bounce">
+          Tap on screen to continue.
         </span>
       </div>
     </div>
