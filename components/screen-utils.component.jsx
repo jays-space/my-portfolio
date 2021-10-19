@@ -23,7 +23,7 @@ export const CustomSection = ({ project, children }) => {
         leaveTo="opacity-0"
       >
         <section
-          className={`h-full flex flex-col z-30 ${project ? "mt-48" : "mt-0"}`}
+          className={`h-full flex flex-col z-30`}
         >
           {children}
         </section>

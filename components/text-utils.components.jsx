@@ -129,9 +129,9 @@ export const SubHeader = ({ project, children }) => {
 
 export const ProjectHeader = ({ title, subtitle, image, alt }) => {
   return (
-    <span className="flex flex-col mb-16">
+    <span className="flex flex-col pl-6 h-screen">
       {/* Header and subtitle */}
-      <div className="flex flex-col mt-4 mb-12">
+      <div className="flex flex-col mt-40 mb-12">
         <span className={`font-header text-4xl font-bold`}>{title}</span>
         <p className={`text-primary text-sm max-w-prose mt-4 pr-6`}>
           {subtitle}
