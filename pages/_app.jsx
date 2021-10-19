@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
           />
 
           {/* <TransitionLayout> */}
-            <Component {...pageProps} />
+          <Component {...pageProps} />
           {/* </TransitionLayout> */}
         </main>
 
@@ -92,26 +92,32 @@ function MyApp({ Component, pageProps }) {
 
       {/* Nav buttons */}
       <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center">
-        <span className="fixed bottom-11 left-6">
+        <div className="fixed bottom-11 left-6">
           {/* <Link href="/">
             <a>{`< -- Back`}</a>
           </Link> */}
-        </span>
+        </div>
 
         {/* 
             //* Bubble sits behind the button - controls the effect that occures when the button is pressed 
           */}
-        <span
+        <div
           className={`bubble fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
             navHidden ? "bg-primary bubble-primary-active" : "bg-current"
           }`}
         />
-        <span
-          className={`fixed bottom-7 right-7 w-14 h-14 rounded-full bg-primary transition-colors duration-300 ease-in-out z-10`}
+        <div
+          className={`nav-icon fixed bottom-7 right-7 w-14 h-14 rounded-full bg-primary transition-colors duration-300 ease-in-out z-10 ${!navHidden && 'open'}`}
           onClick={showNav}
-        />
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
-      {}
       <Footer />
     </div>
   );
