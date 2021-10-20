@@ -5,7 +5,7 @@ import { Transition } from "@headlessui/react";
 
 export const Greeting = ({ children }) => {
   return (
-    <Transition show={true} appear={true}>
+    <Transition show={true} appear={true} className="tablet:px-12">
       <Transition.Child
         enter="transition-all duration-1000 delay-800 ease-in-out"
         enterFrom={`opacity-0 translate-y-8`}
@@ -20,9 +20,9 @@ export const Greeting = ({ children }) => {
   );
 };
 
-export const MainHeader = ({ noMargin, stagger, children }) => {
+export const MainHeader = ({ greeting, noMargin, stagger, children }) => {
   return (
-    <Transition show={true} appear={true}>
+    <Transition show={true} appear={true} className="tablet:px-12 laptop:px-36">
       <Transition.Child
         enter={`transition-all duration-1000 ease-in-out ${
           stagger ? "delay-1400" : "delay-800"
@@ -33,8 +33,9 @@ export const MainHeader = ({ noMargin, stagger, children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
+        <span className="text-sm mb-1 tablet:text-base desktop:text-lg">{greeting}</span>
         <h1
-          className={`font-header text-4xl mobile-360:text-5xl font-bold ${
+          className={`font-header text-4xl mobile-410:text-5xl tablet:text-6xl tablet-md:text-7xl desktop:text-8xl tablet-lg:max-w-3xl desktop:max-w-6xl font-bold ${
             noMargin ? "" : "mt-4"
           }`}
         >
@@ -83,7 +84,7 @@ export const SectionHeader = ({ contentRef, children }) => {
           scrolledToTop ? "opacity-100" : "opacity-0"
         }`}
       />
-      <Transition show={true} appear={true}>
+      <Transition show={true} appear={true} className="tablet:px-12 laptop:px-36">
         <Transition.Child
           enter={`transition-all duration-1000 ease-in-out delay-500`}
           enterFrom={`opacity-0 translate-y-8 z-10`}
@@ -92,9 +93,10 @@ export const SectionHeader = ({ contentRef, children }) => {
           leaveFrom="opacity-100 z-10"
           leaveTo="opacity-0 z-10"
         >
-          <span className="h-screen flex flex-col mb-72 mt-40 mobile-360:mt-52 pl-6 z-10">
+          <span className="h-screen flex flex-col mb-72 mt-40 mobile-360:mt-52 tablet-md:mt-72 pl-6 z-10">
             <h1
-              className={`font-header text-4xl mobile-360:text-5xl font-bold`}
+              className={`font-header text-4xl mobile-360:text-5xl mobile-410:text-6xl tablet:text-7xl mobile-410:pr-6 font-bold max-w-2xl tablet-md:max-w-3xl`}
+            
             >
               {children}
             </h1>
@@ -137,8 +139,8 @@ export const SectionHeader = ({ contentRef, children }) => {
 export const SubHeader = ({ project, children }) => {
   return (
     <h3
-      className={`font-header font-bold text-primary ${
-        project ? "text-lg mt-8" : "text-2xl mt-6"
+      className={`font-header font-bold text-primary tablet:px-12 ${
+        project ? "text-lg mt-8" : "text-2xl mt-6 laptop:pl-12"
       }`}
     >
       {children}
@@ -177,7 +179,7 @@ export const CustomLink = ({ url, title, header, newTab }) => {
   return (
     <Link href={url}>
       {newTab ? (
-        <a target="_blank" className="z-50">
+        <a target="_blank" className="z-50 tablet:px-12">
           {header ? (
             <span className="inline text-primary font-semibold">{title}</span>
           ) : (
@@ -187,7 +189,7 @@ export const CustomLink = ({ url, title, header, newTab }) => {
           )}
         </a>
       ) : (
-        <a className="z-50">
+        <a className="z-50 tablet:px-12">
           {header ? (
             <span className="inline text-primary font-semibold">{title}</span>
           ) : (
@@ -221,7 +223,7 @@ export const Paragraph = ({
           leaveTo="opacity-0"
         >
           <p
-            className={`font-body text-base max-w-prose ${
+            className={`font-body text-base max-w-sm laptop:max-w-lg tablet:pl-12 laptop:pl-36 tablet:text-lg desktop:text-xl ${
               body ? "mb-8 pr-6" : "my-4"
             } ${project && "mt-2 mb-4 pr-6"} ${
               caption && "italic text-gray-500 font-semibold pr-6"
@@ -234,7 +236,8 @@ export const Paragraph = ({
     );
   } else {
     return (
-      <Transition show={true} appear={true}>
+      <Transition show={true} appear={true}
+      className='tablet:px-12'>
         <Transition.Child
           enter="transition-opacity duration-1000 delay-1200 ease-in-out"
           enterFrom="opacity-0"
@@ -281,7 +284,7 @@ export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
           <p className={`text-gray-500 text-sm max-w-prose mt-1 pr-6 mb-8`}>
             {subtitle}
           </p>
-          <CustomLink url={link} title='Learn More.' />
+          <CustomLink url={link} title="Learn More." />
           {/* <Link href={link}>
             <span className={`text-primary text-xs w-max mt-8 pb-1 border-b-2 border-primary`}>
               Learn More.

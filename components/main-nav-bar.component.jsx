@@ -15,28 +15,90 @@ const MainNavigationBar = ({ children }) => {
 
   return (
     <nav
-      className={`flex justify-end w-screen px-6 py-6 fixed z-50 transition-opacity duration-700 ease-in-out ${
-        pathname === "/" || pathname === "/home" ? "opacity-0" : "opacity-100"
-      }`}
+      className={`flex flex-col justify-end w-screen px-6 py-6 fixed z-50 transition-opacity duration-700 ease-in-out tablet-lg:justify-between tablet-lg:px-12 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0`}
     >
-      <Link href={pathname.includes("projects/") ? "./" : "/"}>
-        <a className="home-link font-header font-bold text-sm">
-          <Transition
-            show={true}
-            appear={true}
-            enter="transition-opacity duration-700 ease-in-out"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-700"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+      <Transition
+        className="flex justify-end tablet-lg:hidden"
+        show={true}
+        appear={true}
+        enter="transition-opacity duration-700 ease-in-out"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-700"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <Link href={pathname.includes("projects/") ? "./" : "/"}>
+          <a
+            className={`home-link font-header font-bold text-sm ${
+              pathname === "/" || pathname === "/home"
+                ? "opacity-0"
+                : "opacity-100"
+            }`}
           >
-            {
-              pathname.includes('projects/') ? 'back.to.projects.' : 'jays.space.'
-            }
-          </Transition>
-        </a>
-      </Link>
+            {pathname.includes("projects/")
+              ? "back.to.projects."
+              : "jays.space."}
+          </a>
+        </Link>
+      </Transition>
+
+      <Transition
+        className="nav-links hidden w-full justify-end tablet-lg:flex"
+        show={true}
+        appear={true}
+        enter="transition-opacity duration-700 ease-in-out"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-700"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <ul className="flex flex-col items-end">
+          <li className="mb-2">
+            <Link href="/about">
+              <a className="home-link font-header font-bold">About.</a>
+            </Link>
+          </li>
+          <li className="mb-2">
+            <Link href="/projects/">
+              <a className="home-link font-header font-bold">Projects.</a>
+            </Link>
+          </li>
+          <li className="mb-2">
+            <Link href="/contact">
+              <a className="home-link font-header font-bold">Contact.</a>
+            </Link>
+          </li>
+        </ul>
+      </Transition>
+
+      <Transition
+        className="hidden h-full justify-end items-end tablet-lg:flex"
+        show={true}
+        appear={true}
+        enter="transition-opacity duration-700 ease-in-out"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-700"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <Link href={pathname.includes("projects/") ? "./" : "/"}>
+          <a
+            className={`home-link-bottom font-header font-bold text-sm ${
+              pathname === "/" || pathname === "/home"
+                ? "opacity-0"
+                : "opacity-100"
+            }`}
+          >
+            {pathname.includes("projects/")
+              ? "back.to.projects."
+              : "jays.space."}
+          </a>
+        </Link>
+      </Transition>
+
       <section className="content">{children}</section>
     </nav>
   );

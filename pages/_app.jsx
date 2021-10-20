@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
       <div className={`flex w-screen h-full`}>
         <main
           className={`transition-transform duration-300 ease-in-out delay-300 h-full ${
-            navHidden ? "translate-x-0" : "-translate-x-2/3"
+            navHidden ? "translate-x-0" : "-translate-x-2/3 tablet:-translate-x-1/2"
           } ${pathname === "/" && "overflow-hidden"}`}
         >
           {/*
@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
 
         {/* Navigation section */}
         <nav
-          className={`flex items-center fixed h-full w-2/3 right-0 bg-primary p-6 transition-transform duration-300 ease-in-out delay-300 z-50 ${
+          className={`flex items-center fixed h-full w-2/3 tablet:w-1/2 right-0 bg-primary p-6 transition-transform duration-300 ease-in-out delay-300 z-50 ${
             navHidden ? "translate-x-full" : "translate-x-0"
           }`}
         >
@@ -106,7 +106,7 @@ function MyApp({ Component, pageProps }) {
         //* if not on the index page, show nav button
        */}
 
-      <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center z-50">
+      <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center z-50 tablet-lg:hidden">
         <div className="fixed bottom-11 left-6">
           {/* <Link href="/">
             <a>{`< -- Back`}</a>

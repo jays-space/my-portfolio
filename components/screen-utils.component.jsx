@@ -4,7 +4,7 @@ import { Transition } from "@headlessui/react";
 
 export const Content = ({ project, children }) => {
   return (
-    <section className="content-section flex flex-col pl-6 bg-black mb-12">
+    <section className="content-section flex flex-col pl-6 items-start laptop:items-center bg-black mb-12">
       <CustomSection project={project}>{children}</CustomSection>
       {/* <div className="orange-bg fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-primary via-primary" /> */}
     </section>
@@ -22,7 +22,7 @@ export const CustomSection = ({ project, children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <section className={`h-full flex flex-col z-30`}>{children}</section>
+        <section className={`h-full flex flex-col z-30 justify-start laptop:justify-center`}>{children}</section>
       </Transition.Child>
     </Transition>
   );

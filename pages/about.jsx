@@ -13,7 +13,7 @@ const AboutPage = () => {
   const contentRef = useRef();
 
   return (
-    <div className="screen flex flex-col">
+    <div className="about-screen flex flex-col w-screen">
       {/* Header */}
       <SectionHeader contentRef={contentRef}>
         I design and build digital products.

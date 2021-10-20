@@ -34,22 +34,22 @@ export default function Home() {
       <main className="home h-screen">
         {/* Background image */}
         <div
-          className={`fixed left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat z-n1 ${
+          className={`hero-image fixed left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat z-n1  ${
             bgAnimated === true ? "hero-wrapper--animated" : "hero-wrapper"
           }`}
         />
 
         {/* Background gradient and content */}
         <div
-          className={`gradient-and-content flex flex-col h-full pl-6 pr-6 pt-6 justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
+          className={`gradient-and-content flex flex-col w-screen h-full pl-6 pr-6 pt-6 justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
         >
           {/* Hero section */}
           <section
-            className={`hero-section flex flex-col h-full mt-14 mobile-360:mt-20 mobile-375:mt-36 transition-transform duration-500`}
+            className={`hero-section flex flex-col h-full mt-14 mobile-360:mt-20 mobile-375:mt-36 laptop:mt-48 transition-transform duration-500`}
           >
             <div className="hero-section flex flex-col">
-              <Greeting>Hello.</Greeting>
-              <MainHeader noMargin>
+              {/* <Greeting>Hi.</Greeting> */}
+              <MainHeader greeting="Hi." noMargin>
                 I'm <CustomLink header url="/about" title="Jay." />
               </MainHeader>
               <MainHeader stagger>Welcome to My Space</MainHeader>
@@ -76,7 +76,6 @@ export default function Home() {
     </div>
   );
 }
-
 
 // import React from "react";
 // import Head from "next/head";

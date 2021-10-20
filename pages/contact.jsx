@@ -58,7 +58,7 @@ const ContactPage = () => {
             <ul>
               <li className="mb-2 py-1 w-max relative">
                 <span
-                  className="inline text-primary font-semibold text-base font-header"
+                  className="inline text-primary font-semibold text-base font-header tablet:px-12"
                   onClick={copyToClipboard}
                 >
                   contact.jays.space@gmail.com

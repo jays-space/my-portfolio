@@ -8,6 +8,11 @@ module.exports = {
         "mobile-360": "360px",
         "mobile-375": "375px",
         "mobile-410": "410px",
+        "tablet": "630px",
+        "tablet-md": "768px",
+        "tablet-lg": "980px",
+        'laptop': '1024px',
+        'desktop': '1280px',
       },
       zIndex: {
         'n1': "-1",
