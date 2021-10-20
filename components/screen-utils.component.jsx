@@ -22,11 +22,7 @@ export const CustomSection = ({ project, children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <section
-          className={`h-full flex flex-col z-30`}
-        >
-          {children}
-        </section>
+        <section className={`h-full flex flex-col z-30`}>{children}</section>
       </Transition.Child>
     </Transition>
   );

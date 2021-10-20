@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 
 //COMPONENTS
@@ -12,6 +12,7 @@ import {
 
 const ContactPage = () => {
   const [copied, setCopied] = useState(false);
+  const contentRef = useRef();
 
   const copyToClipboard = async () => {
     navigator.clipboard.writeText("contact.jays.space@gmail.com");
@@ -29,8 +30,9 @@ const ContactPage = () => {
   return (
     <div className="screen flex flex-col">
       {/* Header */}
-      <SectionHeader>Let's make something special!</SectionHeader>
+      <SectionHeader contentRef={contentRef}>Let's make something special!</SectionHeader>
 
+      <section ref={contentRef} className='content-section'>
       <Content>
         {/* Caption */}
         <Paragraph caption>
@@ -91,6 +93,7 @@ const ContactPage = () => {
           </Transition.Child>
         </Transition>
       </Content>
+      </section>
     </div>
   );
 };

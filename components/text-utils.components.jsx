@@ -43,7 +43,14 @@ export const MainHeader = ({ noMargin, stagger, children }) => {
   );
 };
 
-export const SectionHeader = ({ children }) => {
+/*
+  * Renders a header section of a page. 
+  * Component contains a title, a propmp to scroll down (an arrow icon), and the background in the primary color.
+  * Also contains an animation that runs everytime the component mounts.
+  * On arrow icon tap, the app scrolls to the content section
+  
+*/
+export const SectionHeader = ({ contentRef, children }) => {
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const [showArrow, setShowArrow] = useState(false);
 
@@ -83,7 +90,7 @@ export const SectionHeader = ({ children }) => {
           leaveFrom="opacity-100 z-10"
           leaveTo="opacity-0 z-10"
         >
-          <span className="h-screen flex flex-col justify-between mb-72 mt-52 pl-6 z-10">
+          <span className="h-screen flex flex-col mb-72 mt-52 pl-6 z-10">
             <h1 className={`font-header text-5xl font-bold`}>{children}</h1>
             {/* 
             //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
@@ -92,9 +99,15 @@ export const SectionHeader = ({ children }) => {
             ${showArrow ? "flex" : "hidden"}
           */}
             <span
-              className={`fixed h-12 w-80 mt-80 flex justify-center items-center transition-opacity ease-in-out duration-700 ${
+              className={`h-12 w-80 mt-40 flex justify-center items-center z-40 transition-opacity ease-in-out duration-700 ${
                 scrolledToTop ? "opacity-100" : "opacity-0"
               }`}
+              onClick={() =>
+                contentRef.current.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                })
+              }
             >
               <svg
                 className="animate-bounce w-6 h-6 text-amber-900"
