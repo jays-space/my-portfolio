@@ -109,6 +109,11 @@ function MyApp({ Component, pageProps }) {
             //* Bubble sits behind the button - controls the effect that occures when the button is pressed 
           */}
           <div
+            className={`bg-current fixed bottom-10 right-10 w-8 h-8 rounded-full transition-opacity duration-500 ease-in-out animate-ping ${
+              navHidden ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          <div
             className={`bubble fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
               navHidden ? "bg-primary bubble-primary-active" : "bg-current"
             }`}
