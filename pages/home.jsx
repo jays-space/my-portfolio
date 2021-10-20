@@ -27,7 +27,7 @@ export default function Home() {
       <div className={`flex`}>
         {/* Background image */}
         <main
-          className={`hero-wrapper w-screen bg-cover bg-no-repeat bg-center flex flex-col `}
+          className={`hero-wrapper w-screen h-screen bg-top bg-no-repeat flex flex-col `}
         >
           {/*
             //* hero section overlay: the contrast between the image and blurb text makes is such that the text is hard to read
@@ -38,7 +38,7 @@ export default function Home() {
 
           {/* Background gradient */}
           <div
-            className={`flex flex-col pl-6 pr-6 pt-6 h-screen justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
+            className={`flex flex-col h-full pl-6 pr-6 pt-6 justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
           >
             <div className="flex flex-col h-full justify-between">
               {/* Hero section */}
