@@ -31,7 +31,9 @@ const MainNavigationBar = ({ children }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            jays.space.
+            {
+              pathname.includes('projects/') ? 'back.to.projects.' : 'jays.space.'
+            }
           </Transition>
         </a>
       </Link>

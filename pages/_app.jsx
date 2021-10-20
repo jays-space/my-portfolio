@@ -5,8 +5,8 @@ import "tailwindcss/tailwind.css";
 
 //COMPONENTS
 import NavigationBar from "../components/main-nav-bar.component";
-import Footer from "../components/footer.component";
-import TransitionLayout from "../components/screen-transitions.component";
+// import Footer from "../components/footer.component";
+// import TransitionLayout from "../components/screen-transitions.component";
 
 //GLOBAL STYLES
 import "../styles.css";
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <div className="font-body flex flex-col h-screen w-screen">
+    <div className="font-body flex flex-col h-full w-screen">
       <NavigationBar />
       <div className={`flex w-screen h-full`}>
         <main
@@ -41,8 +41,8 @@ function MyApp({ Component, pageProps }) {
             //* user can tap on overlay to hide nav             
           */}
           <div
-            className={`darken-on-nav-active fixed left-0 top-0 bg-black w-screen h-full z-40 transition-opacity duration-300 delay-300 ${
-              navHidden ? "opacity-0" : "opacity-80"
+            className={`darken-on-nav-active fixed left-0 top-0 bg-black w-screen h-full transition-all duration-300 delay-300 ${
+              navHidden ? "opacity-0 z-30" : "opacity-80 z-50"
             } ${pathname === "/" ? "hidden" : "visible"}`}
             onClick={hideNav}
           />

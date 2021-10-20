@@ -34,7 +34,9 @@ export const MainHeader = ({ noMargin, stagger, children }) => {
         leaveTo="opacity-0"
       >
         <h1
-          className={`font-header text-4xl mobile-360:text-5xl font-bold ${noMargin ? "" : "mt-4"}`}
+          className={`font-header text-4xl mobile-360:text-5xl font-bold ${
+            noMargin ? "" : "mt-4"
+          }`}
         >
           {children}
         </h1>
@@ -91,7 +93,11 @@ export const SectionHeader = ({ contentRef, children }) => {
           leaveTo="opacity-0 z-10"
         >
           <span className="h-screen flex flex-col mb-72 mt-40 mobile-360:mt-52 pl-6 z-10">
-            <h1 className={`font-header text-4xl mobile-360:text-5xl font-bold`}>{children}</h1>
+            <h1
+              className={`font-header text-4xl mobile-360:text-5xl font-bold`}
+            >
+              {children}
+            </h1>
             {/* 
             //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
             //TODO: Smooth animate the arrow on page mount 
@@ -254,31 +260,34 @@ export const Paragraph = ({
 
 export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
   return (
-    <div className="mb-20 z-50">
-      <Link href={link}>
-        <span className="flex flex-col">
-          {/* Image */}
-          <div className="h-28 overflow-hidden">
-            <div className="w-full h-full relative">
-              <Image
-                src={image}
-                alt={alt}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-tl-lg rounded-bl-lg"
-              />
-            </div>
+    <div className="mb-20 z-40">
+      <span className="flex flex-col">
+        {/* Image */}
+        <div className="h-28 mobile-410:h-32 overflow-hidden">
+          <div className="w-full h-full relative">
+            <Image
+              src={image}
+              alt={alt}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-tl-lg rounded-bl-lg"
+            />
           </div>
+        </div>
 
-          {/* Header and subtitle */}
-          <div className="flex flex-col mt-4">
-            <span className={`font-header text-lg font-bold`}>{title}</span>
-            <p className={`text-primary text-sm max-w-prose mt-1 pr-6`}>
-              {subtitle}
-            </p>
-          </div>
-        </span>
-      </Link>
+        {/* Header and subtitle */}
+        <div className="flex flex-col mt-4">
+          <span className={`font-header text-lg font-bold`}>{title}</span>
+          <p className={`text-primary text-sm max-w-prose mt-1 pr-6`}>
+            {subtitle}
+          </p>
+          <Link href={link}>
+            <span className={`text-xs w-max mt-8 pb-1 border-b-2`}>
+              Learn More.
+            </span>
+          </Link>
+        </div>
+      </span>
     </div>
   );
 };
