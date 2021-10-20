@@ -16,8 +16,15 @@ function MyApp({ Component, pageProps }) {
   const route = useRouter();
   const { pathname } = route;
 
-  const showNav = () => {
+  const toggleNav = () => {
     setNavHidden(!navHidden);
+  };
+
+  const hideNav = () => {
+    // * only hide the nav if nav is visible on screen
+    if (navHidden === false) {
+      setNavHidden(true);
+    }
   };
 
   return (
@@ -30,13 +37,14 @@ function MyApp({ Component, pageProps }) {
           }`}
         >
           {/*
-              //* hero section darkens when nav is open
-              //! Cannot access elements on screen (other than nav btns) because the z-index is higher
-            */}
+            //* hero section darkens when nav is open.
+            //* user can tap on overlay to hide nav             
+          */}
           <div
             className={`darken-on-nav-active fixed left-0 top-0 bg-black w-screen h-full z-40 transition-opacity duration-300 delay-300 ${
               navHidden ? "opacity-0" : "opacity-80"
             } ${pathname === "/" ? "hidden" : "visible"}`}
+            onClick={hideNav}
           />
 
           {/* <TransitionLayout> */}
@@ -64,7 +72,7 @@ function MyApp({ Component, pageProps }) {
               </li>
             </Link>
 
-            <Link href={"/projects/"} onClick={showNav}>
+            <Link href={"/projects/"} onClick={toggleNav}>
               <li
                 className={`font-header text-xl font-bold mb-2 transition-transform delay-700 ease-out ${
                   navHidden
@@ -77,7 +85,7 @@ function MyApp({ Component, pageProps }) {
               </li>
             </Link>
 
-            <Link href={"/contact"} onClick={showNav}>
+            <Link href={"/contact"} onClick={toggleNav}>
               <li
                 className={`font-header text-xl font-bold mb-2 transition-transform delay-800 ease-out ${
                   navHidden
@@ -122,7 +130,7 @@ function MyApp({ Component, pageProps }) {
             className={`nav-icon fixed bottom-7 right-7 w-14 h-14 rounded-full bg-primary transition-colors duration-300 ease-in-out z-10 ${
               !navHidden && "open"
             }`}
-            onClick={showNav}
+            onClick={toggleNav}
           >
             <span></span>
             <span></span>
