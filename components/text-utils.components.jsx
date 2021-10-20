@@ -278,14 +278,15 @@ export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
         {/* Header and subtitle */}
         <div className="flex flex-col mt-4">
           <span className={`font-header text-lg font-bold`}>{title}</span>
-          <p className={`text-primary text-sm max-w-prose mt-1 pr-6`}>
+          <p className={`text-gray-500 text-sm max-w-prose mt-1 pr-6 mb-8`}>
             {subtitle}
           </p>
-          <Link href={link}>
-            <span className={`text-xs w-max mt-8 pb-1 border-b-2`}>
+          <CustomLink url={link} title='Learn More.' />
+          {/* <Link href={link}>
+            <span className={`text-primary text-xs w-max mt-8 pb-1 border-b-2 border-primary`}>
               Learn More.
             </span>
-          </Link>
+          </Link> */}
         </div>
       </span>
     </div>

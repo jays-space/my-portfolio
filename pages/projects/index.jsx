@@ -34,7 +34,7 @@ const ProjectsPage = () => {
             image={bohemian_vnyla_img}
             alt="bohemian vnyla"
             title="Bohemian VNYLA"
-            subtitle="A nightlife experience management and curation app."
+            subtitle="A nightlife curation and management app."
           />
         </Content>
       </section>

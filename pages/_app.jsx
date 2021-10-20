@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
         <main
           className={`transition-transform duration-300 ease-in-out delay-300 h-full ${
             navHidden ? "translate-x-0" : "-translate-x-2/3"
-          } ${pathname === '/home' && 'overflow-hidden'}`}
+          } ${pathname === "/" && "overflow-hidden"}`}
         >
           {/*
             //* hero section darkens when nav is open.
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
           <div
             className={`darken-on-nav-active fixed left-0 top-0 bg-black w-screen h-full transition-all duration-300 delay-300 ${
               navHidden ? "opacity-0 z-30" : "opacity-80 z-50"
-            } ${pathname === "/" ? "hidden" : "visible"}`}
+            }`}
             onClick={hideNav}
           />
 
@@ -105,42 +105,42 @@ function MyApp({ Component, pageProps }) {
       {/* 
         //* if not on the index page, show nav button
        */}
-      {pathname !== "/" && (
-        <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center z-50">
-          <div className="fixed bottom-11 left-6">
-            {/* <Link href="/">
+
+      <nav className="bubble fixed bottom-0 right-6 flex justify-end mb-6 items-center z-50">
+        <div className="fixed bottom-11 left-6">
+          {/* <Link href="/">
             <a>{`< -- Back`}</a>
           </Link> */}
-          </div>
+        </div>
 
-          {/* 
+        {/* 
             //* Bubble sits behind the button - controls the effect that occures when the button is pressed 
           */}
-          <div
-            className={`bg-current fixed bottom-10 right-10 w-8 h-8 rounded-full transition-opacity duration-500 ease-in-out animate-ping ${
-              navHidden ? "opacity-100" : "opacity-0"
-            }`}
-          />
-          <div
-            className={`bubble fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
-              navHidden ? "bg-primary bubble-primary-active" : "bg-current"
-            }`}
-          />
-          <div
-            className={`nav-icon fixed bottom-7 right-7 w-14 h-14 rounded-full bg-primary transition-colors duration-300 ease-in-out z-10 ${
-              !navHidden && "open"
-            }`}
-            onClick={toggleNav}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </nav>
-      )}
+        <div
+          className={`bg-current fixed bottom-10 right-10 w-8 h-8 rounded-full transition-opacity duration-500 ease-in-out animate-ping ${
+            navHidden ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <div
+          className={`bubble fixed bottom-6 right-6 w-16 h-16 rounded-full transition-all duration-500 ease-in-out ${
+            navHidden ? "bg-primary bubble-primary-active" : "bg-current"
+          }`}
+        />
+        <div
+          className={`nav-icon fixed bottom-7 right-7 w-14 h-14 rounded-full bg-primary transition-colors duration-300 ease-in-out z-10 ${
+            !navHidden && "open"
+          }`}
+          onClick={toggleNav}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+
       {/* <Footer /> */}
     </div>
   );

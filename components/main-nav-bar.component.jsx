@@ -19,7 +19,7 @@ const MainNavigationBar = ({ children }) => {
         pathname === "/" || pathname === "/home" ? "opacity-0" : "opacity-100"
       }`}
     >
-      <Link href={pathname.includes("projects/") ? "./" : "/home"}>
+      <Link href={pathname.includes("projects/") ? "./" : "/"}>
         <a className="home-link font-header font-bold text-sm">
           <Transition
             show={true}
