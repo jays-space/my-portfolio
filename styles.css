@@ -14,8 +14,16 @@ body {
 
 .hero-wrapper {
   background-image: url("/images/hero_image.png");
-  /* background-repeat: no-repeat;
-  background-size: auto; */
+  transform: scale(1.04);
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
+
+.hero-wrapper--animated {
+  background-image: url("/images/hero_image.png");
+  transform: scale(1) translateY(3px);
+  opacity: 1;
+  transition: all 500ms ease-in-out;
 }
 
 .bubble-primary-active {

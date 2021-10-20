@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
+import { Transition } from "@headlessui/react";
 
 //COMPONENTS
 import {
@@ -12,6 +12,13 @@ import {
 
 export default function Home() {
   const [navHidden, setNavHidden] = useState(true);
+  const [bgAnimated, setBgAnimated] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setBgAnimated(true);
+    }, 100);
+  });
 
   const showNav = () => {
     setNavHidden(!navHidden);
@@ -24,48 +31,48 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={`flex`}>
+      <main className="home h-screen">
         {/* Background image */}
-        <main
-          className={`hero-wrapper w-screen h-screen bg-top bg-no-repeat flex flex-col `}
+        <div
+          className={`fixed left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat z-n1 ${
+            bgAnimated === true ? "hero-wrapper--animated" : "hero-wrapper"
+          }`}
+        />
+
+        {/* Background gradient and content */}
+        <div
+          className={`gradient-and-content flex flex-col h-full pl-6 pr-6 pt-6 justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
         >
+          {/* Hero section */}
+          <section
+            className={`hero-section flex flex-col h-full mt-14 mobile-360:mt-20 mobile-375:mt-36 transition-transform duration-500`}
+          >
+            <div className="hero-section flex flex-col">
+              <Greeting>Hello.</Greeting>
+              <MainHeader noMargin>
+                I'm <CustomLink header url="/about" title="Jay." />
+              </MainHeader>
+              <MainHeader stagger>Welcome to My Space</MainHeader>
+            </div>
+
+            {/* Blurb section */}
+            <div className="blurb-section mt-12 mobile-360:mt-14 sm:mt-16">
+              <Paragraph hero>
+                I’m a Front-End Developer located in Johannesburg, South Africa.
+                I have a passion for ideating, designing and developing digital
+                experiences - bringing ideas to life.
+              </Paragraph>
+            </div>
+          </section>
+
           {/*
             //* hero section overlay: the contrast between the image and blurb text makes is such that the text is hard to read
           */}
           <div
-            className={`fixed left-0 top-0 bg-black w-screen h-screen opacity-40 `}
+            className={`fixed left-0 top-0 bg-black w-screen h-full opacity-40 z-n1`}
           />
-
-          {/* Background gradient */}
-          <div
-            className={`flex flex-col h-full pl-6 pr-6 pt-6 justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
-          >
-            <div className="flex flex-col h-full justify-between">
-              {/* Hero section */}
-              <section
-                className={`hero-section mt-2 mobile-360:mt-20 mobile-375:mt-36 transition-transform duration-500`}
-              >
-                <div className="hero-section flex flex-col">
-                  <Greeting>Hello.</Greeting>
-                  <MainHeader noMargin>
-                    I'm <CustomLink header url="/about" title="Jay." />
-                  </MainHeader>
-                  <MainHeader stagger>Welcome to My Space</MainHeader>
-                </div>
-
-                {/* Blurb section */}
-                <div className="blurb-section mt-12 mobile-360:mt-14 sm:mt-16">
-                  <Paragraph hero>
-                    I’m a Front-End Developer located in Johannesburg, South
-                    Africa. I have a passion for ideating, designing and
-                    developing digital experiences - bringing ideas to life.
-                  </Paragraph>
-                </div>
-              </section>
-            </div>
-          </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

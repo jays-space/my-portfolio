@@ -7,6 +7,7 @@ module.exports = {
       screens: {
         "mobile-360": "360px",
         "mobile-375": "375px",
+        "mobile-410": "410px",
       },
       zIndex: {
         'n1': "-1",
@@ -40,7 +41,10 @@ module.exports = {
         600: "600ms",
         800: "800ms",
         1200: "1200ms",
+        1400: "1400ms",
         1800: "1800ms",
+        2000: "2000ms",
+        2400: "2400ms",
       },
       transitionDuration: {
         10: "10ms",

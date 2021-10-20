@@ -28,13 +28,13 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <div className="font-body flex flex-col h-screen">
+    <div className="font-body flex flex-col h-screen w-screen">
       <NavigationBar />
-      <div className={`flex`}>
+      <div className={`flex w-screen h-full`}>
         <main
-          className={`transition-transform duration-300 ease-in-out delay-300 ${
+          className={`transition-transform duration-300 ease-in-out delay-300 h-full ${
             navHidden ? "translate-x-0" : "-translate-x-2/3"
-          }`}
+          } ${pathname === '/home' && 'overflow-hidden'}`}
         >
           {/*
             //* hero section darkens when nav is open.
@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
 
         {/* Navigation section */}
         <nav
-          className={`flex items-center fixed h-screen w-2/3 right-0 bg-primary p-6 transition-transform duration-300 ease-in-out delay-300 z-50 ${
+          className={`flex items-center fixed h-full w-2/3 right-0 bg-primary p-6 transition-transform duration-300 ease-in-out delay-300 z-50 ${
             navHidden ? "translate-x-full" : "translate-x-0"
           }`}
         >
@@ -141,7 +141,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </nav>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

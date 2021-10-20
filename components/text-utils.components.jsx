@@ -7,10 +7,10 @@ export const Greeting = ({ children }) => {
   return (
     <Transition show={true} appear={true}>
       <Transition.Child
-        enter="transition-opacity duration-500 delay-1800 ease-in-out"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-500"
+        enter="transition-all duration-1000 delay-800 ease-in-out"
+        enterFrom={`opacity-0 translate-y-8`}
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-opacity duration-1000"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
@@ -25,7 +25,7 @@ export const MainHeader = ({ noMargin, stagger, children }) => {
     <Transition show={true} appear={true}>
       <Transition.Child
         enter={`transition-all duration-1000 ease-in-out ${
-          stagger ? "delay-800" : "delay-150"
+          stagger ? "delay-1400" : "delay-800"
         }`}
         enterFrom={`opacity-0 ${stagger ? "translate-y-4" : "translate-y-8"}`}
         enterTo="opacity-100 translate-y-0"
@@ -34,7 +34,7 @@ export const MainHeader = ({ noMargin, stagger, children }) => {
         leaveTo="opacity-0"
       >
         <h1
-          className={`font-header text-5xl font-bold ${noMargin ? "" : "mt-4"}`}
+          className={`font-header text-4xl mobile-360:text-5xl font-bold ${noMargin ? "" : "mt-4"}`}
         >
           {children}
         </h1>
@@ -90,8 +90,8 @@ export const SectionHeader = ({ contentRef, children }) => {
           leaveFrom="opacity-100 z-10"
           leaveTo="opacity-0 z-10"
         >
-          <span className="h-screen flex flex-col mb-72 mt-52 pl-6 z-10">
-            <h1 className={`font-header text-5xl font-bold`}>{children}</h1>
+          <span className="h-screen flex flex-col mb-72 mt-40 mobile-360:mt-52 pl-6 z-10">
+            <h1 className={`font-header text-4xl mobile-360:text-5xl font-bold`}>{children}</h1>
             {/* 
             //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
             //TODO: Smooth animate the arrow on page mount 
@@ -99,7 +99,7 @@ export const SectionHeader = ({ contentRef, children }) => {
             ${showArrow ? "flex" : "hidden"}
           */}
             <span
-              className={`h-12 w-80 mt-40 flex justify-center items-center z-40 transition-opacity ease-in-out duration-700 ${
+              className={`h-12 mx-auto z-40 mt-36 mobile-375:mt-40 mobile-410:mt-60 transition-opacity ease-in-out duration-700 ${
                 scrolledToTop ? "opacity-100" : "opacity-0"
               }`}
               onClick={() =>
@@ -207,9 +207,9 @@ export const Paragraph = ({
     return (
       <Transition show={true} appear={true}>
         <Transition.Child
-          enter="transition-opacity duration-500 delay-1800 ease-in-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
+          enter="transition-all duration-500 delay-2000 ease-in-out"
+          enterFrom="opacity-0 translate-y-4"
+          enterTo="opacity-100 translate-y-0"
           leave="transition-opacity duration-500"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
