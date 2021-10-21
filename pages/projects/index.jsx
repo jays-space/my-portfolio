@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { Content } from "../../components/screen-utils.component";
 import {
   ProjectTitle,
+  ProjectTitleAlt,
   SectionHeader,
   SubHeader,
 } from "../../components/text-utils.components";
@@ -15,7 +16,7 @@ const ProjectsPage = () => {
   const contentRef = useRef();
 
   return (
-    <div className="screen flex flex-col">
+    <div className="projects-screen flex flex-col w-screen">
       {/* Header */}
       {/* <SectionHeader>I design and build digital products.</SectionHeader> */}
       <SectionHeader contentRef={contentRef}>Selected Works.</SectionHeader>
@@ -35,6 +36,14 @@ const ProjectsPage = () => {
             alt="bohemian vnyla"
             title="Bohemian VNYLA"
             subtitle="A nightlife curation and management app."
+          />
+
+          <ProjectTitleAlt
+            link="../projects/bohemian_vnyla"
+            image={bohemian_vnyla_img}
+            alt="bohemian vnyla"
+            title="CRWN LIVE"
+            subtitle="E-commerce web app."
           />
         </Content>
       </section>

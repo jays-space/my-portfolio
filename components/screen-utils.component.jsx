@@ -1,10 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { Transition } from "@headlessui/react";
 
 export const Content = ({ project, children }) => {
+  const router = useRouter();
+  const { pathname } = router;
   return (
-    <section className="content-section flex flex-col pl-6 items-start laptop:items-center bg-black mb-12">
+    <section
+      className={`content-section flex flex-col pl-6 items-start ${pathname !== '/projects' && "laptop:items-center"} laptop:mb-36 tablet:px-12 desktop:px-56 bg-black mb-1`}
+    >
       <CustomSection project={project}>{children}</CustomSection>
       {/* <div className="orange-bg fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-primary via-primary" /> */}
     </section>
@@ -12,8 +17,10 @@ export const Content = ({ project, children }) => {
 };
 
 export const CustomSection = ({ project, children }) => {
+  const router = useRouter();
+  const { pathname } = router;
   return (
-    <Transition show={true} appear={true}>
+    <Transition show={true} appear={true} className={pathname === '/projects' && 'w-full'}>
       <Transition.Child
         enter="transition-opacity duration-500 delay-300 ease-in-out"
         enterFrom="opacity-0"
@@ -22,7 +29,13 @@ export const CustomSection = ({ project, children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <section className={`h-full flex flex-col z-30 justify-start laptop:justify-center`}>{children}</section>
+        <section
+          className={`h-full w-full flex flex-col z-30 justify-start ${
+            pathname !== "/projects/" && "laptop:justify-center"
+          }`}
+        >
+          {children}
+        </section>
       </Transition.Child>
     </Transition>
   );

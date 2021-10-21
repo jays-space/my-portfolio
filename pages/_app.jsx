@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div className="font-body flex flex-col h-full w-screen">
       <NavigationBar />
-      <div className={`flex w-screen h-full`}>
+      <div className={`flex w-max h-full`}>
         <main
           className={`transition-transform duration-300 ease-in-out delay-300 h-full ${
             navHidden ? "translate-x-0" : "-translate-x-2/3 tablet:-translate-x-1/2"

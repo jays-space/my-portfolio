@@ -15,7 +15,7 @@ const MainNavigationBar = ({ children }) => {
 
   return (
     <nav
-      className={`flex flex-col justify-end w-screen px-6 py-6 fixed z-50 transition-opacity duration-700 ease-in-out tablet-lg:justify-between tablet-lg:px-12 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0`}
+      className={`flex flex-col justify-end w-screen px-6 py-6 fixed z-50 transition-opacity duration-700 ease-in-out tablet-lg:justify-between tablet-lg:px-12 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0 desktop:right-24`}
     >
       <Transition
         className="flex justify-end tablet-lg:hidden"
@@ -54,20 +54,20 @@ const MainNavigationBar = ({ children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <ul className="flex flex-col items-end">
+        <ul className="flex flex-col items-end font-header font-bold text-lg">
           <li className="mb-2">
             <Link href="/about">
-              <a className="home-link font-header font-bold">About.</a>
+              <a className="home-link ">About.</a>
             </Link>
           </li>
           <li className="mb-2">
             <Link href="/projects/">
-              <a className="home-link font-header font-bold">Projects.</a>
+              <a className="home-link">Projects.</a>
             </Link>
           </li>
           <li className="mb-2">
             <Link href="/contact">
-              <a className="home-link font-header font-bold">Contact.</a>
+              <a className="home-link">Contact.</a>
             </Link>
           </li>
         </ul>
@@ -84,17 +84,15 @@ const MainNavigationBar = ({ children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Link href={pathname.includes("projects/") ? "./" : "/"}>
+        <Link href="/">
           <a
-            className={`home-link-bottom font-header font-bold text-sm ${
+            className={`home-link-bottom font-header font-bold text-lg ${
               pathname === "/" || pathname === "/home"
                 ? "opacity-0"
                 : "opacity-100"
             }`}
           >
-            {pathname.includes("projects/")
-              ? "back.to.projects."
-              : "jays.space."}
+            jays.space.
           </a>
         </Link>
       </Transition>

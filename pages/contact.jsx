@@ -28,7 +28,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="screen flex flex-col">
+    <div className="contact-screen flex flex-col w-screen">
       {/* Header */}
       <SectionHeader contentRef={contentRef}>Let's make something special!</SectionHeader>
 
@@ -58,7 +58,7 @@ const ContactPage = () => {
             <ul>
               <li className="mb-2 py-1 w-max relative">
                 <span
-                  className="inline text-primary font-semibold text-base font-header tablet:px-12"
+                  className="inline text-primary font-semibold text-base font-header tablet:px-12 laptop:text-lg"
                   onClick={copyToClipboard}
                 >
                   contact.jays.space@gmail.com

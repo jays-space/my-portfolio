@@ -50,7 +50,7 @@ export default function Home() {
             <div className="hero-section flex flex-col">
               {/* <Greeting>Hi.</Greeting> */}
               <MainHeader greeting="Hi." noMargin>
-                I'm <CustomLink header url="/about" title="Jay." />
+                I'm <span className='text-primary'>Jay</span>
               </MainHeader>
               <MainHeader stagger>Welcome to My Space</MainHeader>
             </div>
@@ -58,7 +58,7 @@ export default function Home() {
             {/* Blurb section */}
             <div className="blurb-section mt-12 mobile-360:mt-14 sm:mt-16">
               <Paragraph hero>
-                I’m a Front-End Developer located in Johannesburg, South Africa.
+                I’m a <span className='text-primary'>Front-End Engineer</span> located in Johannesburg, South Africa.
                 I have a passion for ideating, designing and developing digital
                 experiences - bringing ideas to life.
               </Paragraph>
