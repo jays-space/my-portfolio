@@ -48,98 +48,7 @@ export const MainHeader = ({ greeting, noMargin, stagger, children }) => {
   );
 };
 
-/*
-  * Renders a header section of a page. 
-  * Component contains a title, a propmp to scroll down (an arrow icon), and the background in the primary color.
-  * Also contains an animation that runs everytime the component mounts.
-  * On arrow icon tap, the app scrolls to the content section
-  
-*/
-export const SectionHeader = ({ contentRef, children }) => {
-  const [scrolledToTop, setScrolledToTop] = useState(true);
-  const [showArrow, setShowArrow] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setShowArrow(true);
-    }, 2000);
-  });
-
-  useEffect(() => {
-    window.onscroll = function () {
-      if (window.scrollY <= 10) {
-        setScrolledToTop(true);
-      } else {
-        setScrolledToTop(false);
-      }
-    };
-
-    return () => {
-      window.onscroll = null;
-    };
-  }, [setScrolledToTop]);
-
-  return (
-    <section className="header-section h-screen">
-      <div
-        className={`fixed top-0 left-0 bg-primary w-screen h-screen transition-opacity duration-700 z-n1 ${
-          scrolledToTop ? "opacity-100" : "opacity-0"
-        }`}
-      />
-      <Transition
-        show={true}
-        appear={true}
-        className="tablet:px-12 desktop:px-56"
-      >
-        <Transition.Child
-          enter={`transition-all duration-1000 ease-in-out delay-500`}
-          enterFrom={`opacity-0 translate-y-8 z-10`}
-          enterTo="opacity-100 translate-y-0 z-10"
-          leave="transition-opacity duration-1000"
-          leaveFrom="opacity-100 z-10"
-          leaveTo="opacity-0 z-10"
-        >
-          <span className="h-screen flex flex-col mb-72 mt-40 mobile-360:mt-52 tablet-md:mt-72 pl-6 z-10">
-            <h1
-              className={`font-header text-4xl mobile-360:text-5xl mobile-410:text-6xl tablet:text-7xl laptop:text-8xl  mobile-410:pr-6 font-bold max-w-2xl tablet-md:max-w-3xl tablet-lg:max-w-prose`}
-            >
-              {children}
-            </h1>
-            {/* 
-            //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
-            //TODO: Smooth animate the arrow on page mount 
-            
-            ${showArrow ? "flex" : "hidden"}
-          */}
-            <span
-              className={`h-12 mx-auto z-40 mt-36 mobile-375:mt-40 mobile-410:mt-60 laptop:mt-40 desktop:mt-60 transition-opacity ease-in-out duration-700 cursor-pointer ${
-                scrolledToTop ? "opacity-100" : "opacity-0"
-              }`}
-              onClick={() =>
-                contentRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                })
-              }
-            >
-              <svg
-                className="animate-bounce w-6 h-6 text-amber-900"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-            </span>
-          </span>
-        </Transition.Child>
-      </Transition>
-    </section>
-  );
-};
 
 export const SubHeader = ({ project, children }) => {
   return (
@@ -267,7 +176,7 @@ export const Paragraph = ({
 
 export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
   return (
-    <div className="mb-20 z-40 tablet:pl-6 desktop:pl-6 cursor-pointer hover:translate-x-8 transition-transform duration-150 ease-out">
+    <div className="mb-20 z-40 tablet:pl-6 desktop:pl-72 cursor-pointer hover:translate-x-8 transition-transform duration-150 ease-out">
       <Link href={link}>
         <span className="flex flex-col">
           {/* Image */}
@@ -303,9 +212,9 @@ export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
 
 export const ProjectTitleAlt = ({ title, subtitle, image, alt, link }) => {
   return (
-    <div className="flex laptop:self-end mb-20 z-40 tablet:pl-6 cursor-pointer laptop:pr-20 hover:translate-x-8 laptop:hover:-translate-x-8 transition-transform duration-150 ease-out">
+    <div className="flex desktop:self-end mb-20 z-40 tablet:pl-6 cursor-pointer laptop:pr-20 hover:translate-x-8 laptop:hover:-translate-x-8 transition-transform duration-150 ease-out">
       <Link href={link}>
-        <span className="flex flex-col laptop:items-end">
+        <span className="flex flex-col desktop:items-end">
           {/* Image */}
           <div className="w-screen max-w-3xl h-28 mobile-410:h-44 tablet:h-52 tablet-md:h-60 overflow-hidden">
             <div className="h-full relative">

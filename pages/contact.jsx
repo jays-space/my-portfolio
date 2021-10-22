@@ -2,11 +2,10 @@ import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 
 //COMPONENTS
-import { Content } from "../components/screen-utils.component";
+import {  SectionHeader, Content } from "../components/screen-utils.component";
 import {
   CustomLink,
   Paragraph,
-  SectionHeader,
   SubHeader,
 } from "../components/text-utils.components";
 
@@ -28,7 +27,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="contact-screen flex flex-col w-screen">
+    <div className="container flex flex-col w-screen">
       {/* Header */}
       <SectionHeader contentRef={contentRef}>Let's make something special!</SectionHeader>
 

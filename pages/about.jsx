@@ -1,25 +1,32 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 //COMPONENTS
-import { Content, ImageSection } from "../components/screen-utils.component";
+import {
+  SectionHeader,
+  Content,
+  ImageSection,
+} from "../components/screen-utils.component";
 import {
   CustomLink,
   Paragraph,
-  SectionHeader,
   SubHeader,
 } from "../components/text-utils.components";
 
 const AboutPage = () => {
   const contentRef = useRef();
 
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // });
+
   return (
-    <div className="about-screen flex flex-col w-screen">
+    <div className="scroll-container container flex flex-col w-screen">
       {/* Header */}
       <SectionHeader contentRef={contentRef}>
         I design and build digital products.
       </SectionHeader>
 
-      <section ref={contentRef} className='content-section'>
+      <section ref={contentRef} className="content-section">
         <Content>
           {/* Content */}
 

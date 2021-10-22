@@ -15,7 +15,7 @@ const MainNavigationBar = ({ children }) => {
 
   return (
     <nav
-      className={`flex flex-col justify-end w-screen px-6 py-6 fixed z-50 transition-opacity duration-700 ease-in-out tablet-lg:justify-between tablet-lg:px-12 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0 desktop:right-24`}
+      className={`flex flex-col justify-end w-screen pr-6 py-12 fixed z-50 transition-opacity duration-700 ease-in-out tablet-lg:justify-between tablet:pr-12 tablet-lg:pr-20 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0 desktop:pr-60 desktop:py-28`}
     >
       <Transition
         className="flex justify-end tablet-lg:hidden"
