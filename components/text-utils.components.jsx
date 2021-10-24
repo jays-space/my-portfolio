@@ -48,17 +48,26 @@ export const MainHeader = ({ greeting, noMargin, stagger, children }) => {
   );
 };
 
-
-
 export const SubHeader = ({ project, children }) => {
   return (
-    <h3
-      className={`font-header font-bold tablet:px-12 ${
-        project ? "text-lg mt-8" : "text-2xl mt-10 mb-2 laptop:pl-12"
-      }`}
-    >
-      {children}
-    </h3>
+    <Transition show={true} appear={true}>
+      <Transition.Child
+        enter="transition-all duration-1000 delay-1200 ease-in-out"
+        enterFrom="opacity-0 translate-y-4"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-all duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <h3
+          className={`font-header font-bold tablet:px-12 ${
+            project ? "text-lg mt-8" : "text-2xl mt-10 mb-2 laptop:pl-12"
+          }`}
+        >
+          {children}
+        </h3>
+      </Transition.Child>
+    </Transition>
   );
 };
 
@@ -152,10 +161,10 @@ export const Paragraph = ({
     return (
       <Transition show={true} appear={true} className="tablet:px-12">
         <Transition.Child
-          enter="transition-opacity duration-1000 delay-1200 ease-in-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity duration-150"
+          enter="transition-all duration-1000 delay-1200 ease-in-out"
+          enterFrom="opacity-0 translate-y-4"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition-opacity duration-1000"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
@@ -176,37 +185,50 @@ export const Paragraph = ({
 
 export const ProjectTitle = ({ title, subtitle, image, alt, link }) => {
   return (
-    <div className="mb-20 z-40 tablet:pl-6 desktop:pl-72 cursor-pointer hover:translate-x-8 transition-transform duration-150 ease-out">
-      <Link href={link}>
-        <span className="flex flex-col">
-          {/* Image */}
-          <div className="w-screen max-w-3xl h-28 mobile-410:h-44 tablet:h-52 tablet-md:h-60 overflow-hidden">
-            <div className="h-full relative">
-              <Image
-                src={image}
-                alt={alt}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-tl-lg rounded-bl-lg tablet:rounded-lg"
-              />
-            </div>
-          </div>
+    <Transition show={true} appear={true}>
+      <Transition.Child
+        enter="transition-all duration-1000 delay-1200 ease-in-out"
+        enterFrom="opacity-0 translate-y-4"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-all duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div className="mb-20 z-40 tablet:pl-6 desktop:pl-72 cursor-pointer laptop:hover:translate-x-8 transition-transform duration-150 ease-out">
+          <Link href={link}>
+            <span className="flex flex-col">
+              {/* Image */}
+              <div className="w-screen max-w-3xl h-28 mobile-410:h-44 tablet:h-52 tablet-md:h-60 overflow-hidden">
+                <div className="h-full relative">
+                  <Image
+                    src={image}
+                    alt={alt}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-tl-lg rounded-bl-lg tablet:rounded-lg"
+                  />
+                </div>
+              </div>
 
-          {/* Header and subtitle */}
-          <div className="flex flex-col mt-4">
-            <span className={`font-header font-bold text-lg tablet:text-2xl`}>
-              {title}
+              {/* Header and subtitle */}
+              <div className="flex flex-col mt-4">
+                <span
+                  className={`font-header font-bold text-lg tablet:text-2xl`}
+                >
+                  {title}
+                </span>
+                <p
+                  className={`text-gray-500 max-w-prose mt-1 pr-6 mb-8 tablet:text-lg desktop:text-xl`}
+                >
+                  {subtitle}
+                </p>
+                <CustomLink noPadding url={link} title="Learn More." />
+              </div>
             </span>
-            <p
-              className={`text-gray-500 max-w-prose mt-1 pr-6 mb-8 tablet:text-lg desktop:text-xl`}
-            >
-              {subtitle}
-            </p>
-            <CustomLink noPadding url={link} title="Learn More." />
-          </div>
-        </span>
-      </Link>
-    </div>
+          </Link>
+        </div>
+      </Transition.Child>
+    </Transition>
   );
 };
 
@@ -230,7 +252,9 @@ export const ProjectTitleAlt = ({ title, subtitle, image, alt, link }) => {
 
           {/* Header and subtitle */}
           <div className="flex flex-col mt-4 laptop:items-end">
-            <span className={`font-header font-bold text-lg tablet:text-2xl laptop:text-right`}>
+            <span
+              className={`font-header font-bold text-lg tablet:text-2xl laptop:text-right`}
+            >
               {title}
             </span>
             <p

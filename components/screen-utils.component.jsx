@@ -65,12 +65,12 @@ export const SectionHeader = ({ contentRef, children }) => {
             </h1>
             {/* 
             //! scrolledToTop controlls opacity. Opacity cannot be controlled by both scrolledToTop and showArrow simultaneously. Set to hidden/visible in the meanwhile
-            //TODO: Smooth animate the arrow on page mount 
+            //TODO: Delay and Smooth animate the arrow on page mount 
             
             ${showArrow ? "flex" : "hidden"}
           */}
             <span
-              className={`flex h-12 w-12 mx-auto z-40 mt-36 mobile-375:mt-40 mobile-410:mt-60 laptop:mt-40 desktop:mt-60 transition-opacity ease-in-out duration-700 cursor-pointer ${
+              className={`flex h-12 w-12 justify-center items-center mx-auto z-40 mt-36 mobile-375:mt-40 mobile-410:mt-60 laptop:mt-40 desktop:mt-60 transition-opacity ease-in-out duration-700 cursor-pointer ${
                 scrolledToTop ? "opacity-100" : "opacity-0"
               }`}
               onClick={() =>
