@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react";
+import Head from "next/head";
 import { Transition } from "@headlessui/react";
 
 //COMPONENTS
-import {  SectionHeader, Content } from "../components/screen-utils.component";
+import { SectionHeader, Content } from "../components/screen-utils.component";
 import {
   CustomLink,
   Paragraph,
@@ -27,72 +28,81 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="container flex flex-col w-screen">
-      {/* Header */}
-      <SectionHeader contentRef={contentRef}>Let's make something special!</SectionHeader>
+    <div>
+      <Head>
+        <title>jays.space | Contact</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      <section ref={contentRef} className='content-section'>
-      <Content>
-        {/* Caption */}
-        <Paragraph caption>
-          I'm seeking out opportunities to collaborate and work with companies /
-          agencies / individuals. I enjoy adding my collective experiences to a
-          team where we can work together to develop solutions to business
-          challenges.
-        </Paragraph>
+      <div className="container flex flex-col w-screen">
+        {/* Header */}
+        <SectionHeader contentRef={contentRef}>
+          Let's make something special!
+        </SectionHeader>
 
-        <Paragraph body>
-          Please feel free to reach out to me on any of the contacts below.
-        </Paragraph>
+        <section ref={contentRef} className="content-section">
+          <Content>
+            {/* Caption */}
+            <Paragraph caption>
+              I'm seeking out opportunities to collaborate and work with
+              companies / agencies / individuals. I enjoy adding my collective
+              experiences to a team where we can work together to develop
+              solutions to business challenges.
+            </Paragraph>
 
-        <Transition show={true} appear={true} className="z-40">
-          <Transition.Child
-            enter="transition-opacity duration-1000 delay-1200 ease-in-out"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-500"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <ul>
-              <li className="mb-2 py-1 w-max relative">
-                <span
-                  className="inline text-primary font-semibold text-base font-header tablet:px-12 laptop:text-lg"
-                  onClick={copyToClipboard}
-                >
-                  contact.jays.space@gmail.com
-                </span>
+            <Paragraph body>
+              Please feel free to reach out to me on any of the contacts below.
+            </Paragraph>
 
-                <span
-                  className={`absolute bottom-8 right-0 bg-black p-2 text-xs cursor-pointer transition-opacity duration-300 ${
-                    copied ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  Copied to clipboard.
-                </span>
-              </li>
-              <li className="my-2 py-1 w-max">
-                <CustomLink url="#link" title="my resume" />
-              </li>
-              <li className="my-2 py-1 w-max">
-                <CustomLink
-                  newTab
-                  url="https://www.linkedin.com/in/jay-mondlana-29644067/"
-                  title="linkedIn"
-                />
-              </li>
-              <li className="my-2 py-1 w-max">
-                <CustomLink
-                  newTab
-                  url="https://github.com/jays-space"
-                  title="github"
-                />
-              </li>
-            </ul>
-          </Transition.Child>
-        </Transition>
-      </Content>
-      </section>
+            <Transition show={true} appear={true} className="z-40">
+              <Transition.Child
+                enter="transition-opacity duration-1000 delay-1200 ease-in-out"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-500"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <ul>
+                  <li className="mb-2 py-1 w-max relative">
+                    <span
+                      className="inline text-primary font-semibold text-base font-header tablet:px-12 laptop:text-lg"
+                      onClick={copyToClipboard}
+                    >
+                      contact.jays.space@gmail.com
+                    </span>
+
+                    <span
+                      className={`absolute bottom-8 right-0 bg-black p-2 text-xs cursor-pointer transition-opacity duration-300 ${
+                        copied ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      Copied to clipboard.
+                    </span>
+                  </li>
+                  <li className="my-2 py-1 w-max">
+                    <CustomLink url="#link" title="my resume" />
+                  </li>
+                  <li className="my-2 py-1 w-max">
+                    <CustomLink
+                      newTab
+                      url="https://www.linkedin.com/in/jay-mondlana-29644067/"
+                      title="linkedIn"
+                    />
+                  </li>
+                  <li className="my-2 py-1 w-max">
+                    <CustomLink
+                      newTab
+                      url="https://github.com/jays-space"
+                      title="github"
+                    />
+                  </li>
+                </ul>
+              </Transition.Child>
+            </Transition>
+          </Content>
+        </section>
+      </div>
     </div>
   );
 };

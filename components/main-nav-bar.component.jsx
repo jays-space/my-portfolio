@@ -28,7 +28,7 @@ const MainNavigationBar = ({ children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Link href={pathname.includes("projects/") ? "./" : "/"}>
+        <Link href={"/"}>
           <a
             className={`home-link font-header font-bold text-sm ${
               pathname === "/" || pathname === "/home"
@@ -36,9 +36,7 @@ const MainNavigationBar = ({ children }) => {
                 : "opacity-100"
             }`}
           >
-            {pathname.includes("projects/")
-              ? "back.to.projects."
-              : "jays.space."}
+            jays.space.
           </a>
         </Link>
       </Transition>

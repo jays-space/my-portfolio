@@ -9,20 +9,26 @@
 
 html,
 body {
+  padding: 0;
+  margin: 0;
   background-color: #000;
   color: #fff;
-}
-
-html {
   overflow-x: hidden;
-  /* scroll-snap-type: y proximity; */
-  /* max-height: 100vh; */
   scroll-behavior: smooth;
 }
 
-/* .scroll-container {
+body {
+  overflow-x: hidden;
   scroll-snap-type: y proximity;
-} */
+  min-height: 100vh;
+  max-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
 .header-section,
 .content-section {
@@ -31,13 +37,6 @@ html {
   width: 100vw;
   min-height: 100vh;
   /* overflow-y: scroll; */
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 .hero-wrapper {
@@ -170,3 +169,37 @@ html {
   left: calc(55% - 6px);
   top: 33px;
 }
+
+
+
+/* ================================= */
+
+
+
+html {
+  /* overflow-x: hidden; */
+  /* scroll-snap-type: y proximity; */
+  /* max-height: 100vh; */
+  /* scroll-behavior: smooth; */
+}
+
+/* .scroll-container {
+  scroll-snap-type: y proximity;
+} */
+
+.header-section,
+.content-section {
+  /* scroll-behavior: smooth; */
+  /* scroll-snap-align: start; */
+  /* width: 100vw; */
+  /* min-height: 100vh; */
+  /* overflow-y: scroll; */
+}
+
+/* * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+} */
+

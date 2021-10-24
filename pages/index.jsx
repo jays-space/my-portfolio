@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import { Transition } from "@headlessui/react";
 
 //COMPONENTS
@@ -24,49 +25,56 @@ export default function Home() {
   };
 
   return (
-    <main className="home h-screen">
-      {/* Background image */}
-      <div
-        className={`hero-image fixed left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat z-n1  ${
-          bgAnimated === true ? "hero-wrapper--animated" : "hero-wrapper"
-        }`}
-      />
+    <div>
+      <Head>
+        <title>jays.space</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      
+      <main className="home h-screen">
+        {/* Background image */}
+        <div
+          className={`hero-image fixed left-0 top-0 w-screen h-full bg-cover bg-center bg-no-repeat z-n1  ${
+            bgAnimated === true ? "hero-wrapper--animated" : "hero-wrapper"
+          }`}
+        />
 
-      {/* Background gradient and content */}
-      <div
-        className={`gradient-and-content flex flex-col w-screen h-full pl-6 pr-6 pt-6 justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
-      >
-        {/* Hero section */}
-        <section
-          className={`hero-section flex flex-col h-full mt-14 mobile-360:mt-20 mobile-375:mt-36 laptop:mt-48 transition-transform duration-500`}
+        {/* Background gradient and content */}
+        <div
+          className={`gradient-and-content flex flex-col w-screen h-full pl-6 pr-6 pt-6 justify-center z-20 hero-gradient bg-gradient-to-r from-black`}
         >
-          <div className="hero-section flex flex-col">
-            {/* <Greeting>Hi.</Greeting> */}
-            <MainHeader greeting="Hi." noMargin>
-              I'm <span className="text-primary">Jay</span>
-            </MainHeader>
-            <MainHeader stagger>Welcome to My Space</MainHeader>
-          </div>
+          {/* Hero section */}
+          <section
+            className={`hero-section flex flex-col h-full mt-14 mobile-360:mt-20 mobile-375:mt-36 laptop:mt-48 transition-transform duration-500`}
+          >
+            <div className="hero-section flex flex-col">
+              {/* <Greeting>Hi.</Greeting> */}
+              <MainHeader greeting="Hi." noMargin>
+                I'm <span className="text-primary">Jay</span>
+              </MainHeader>
+              <MainHeader stagger>Welcome to My Space</MainHeader>
+            </div>
 
-          {/* Blurb section */}
-          <div className="blurb-section mt-12 mobile-360:mt-14 sm:mt-16">
-            <Paragraph hero>
-              I’m a <span className="text-primary">Front-End Engineer</span>{" "}
-              located in Johannesburg, South Africa. I have a passion for
-              ideating, designing and developing digital experiences - bringing
-              ideas to life.
-            </Paragraph>
-          </div>
-        </section>
+            {/* Blurb section */}
+            <div className="blurb-section mt-12 mobile-360:mt-14 sm:mt-16">
+              <Paragraph hero>
+                I’m a <span className="text-primary">Front-End Engineer</span>{" "}
+                located in Johannesburg, South Africa. I have a passion for
+                ideating, designing and developing digital experiences -
+                bringing ideas to life.
+              </Paragraph>
+            </div>
+          </section>
 
-        {/*
+          {/*
             //* hero section overlay: the contrast between the image and blurb text makes is such that the text is hard to read
           */}
-        <div
-          className={`fixed left-0 top-0 bg-black w-screen h-full opacity-40 z-n1`}
-        />
-      </div>
-    </main>
+          <div
+            className={`fixed left-0 top-0 bg-black w-screen h-full opacity-40 z-n1`}
+          />
+        </div>
+      </main>
+    </div>
   );
 }
 

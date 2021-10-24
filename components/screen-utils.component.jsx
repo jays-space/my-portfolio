@@ -13,6 +13,7 @@ import { Transition } from "@headlessui/react";
 export const SectionHeader = ({ contentRef, children }) => {
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const [showArrow, setShowArrow] = useState(false);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,19 +21,21 @@ export const SectionHeader = ({ contentRef, children }) => {
     }, 2000);
   });
 
+  // *Listens for scroll action by the user
   useEffect(() => {
-    window.onscroll = function () {
-      if (window.scrollY <= 100) {
-        setScrolledToTop(true);
-      } else {
-        setScrolledToTop(false);
-      }
-    };
-
-    return () => {
-      window.onscroll = null;
-    };
-  }, [setScrolledToTop]);
+    window.addEventListener("scroll", handleScroll, true);
+  }, []);
+  
+  // *Manages the orange bg opacity on scroll 
+  const handleScroll = () => {
+    if (document.body.scrollTop <= 100) {
+      setScrolledToTop(true);
+      console.log("position: ", scrolledToTop);
+    } else {
+      setScrolledToTop(false);
+      console.log("position: ", scrolledToTop);
+    }
+  };
 
   return (
     <section className="header-section h-screen">
@@ -67,7 +70,7 @@ export const SectionHeader = ({ contentRef, children }) => {
             ${showArrow ? "flex" : "hidden"}
           */}
             <span
-              className={`h-12 mx-auto z-40 mt-36 mobile-375:mt-40 mobile-410:mt-60 laptop:mt-40 desktop:mt-60 transition-opacity ease-in-out duration-700 cursor-pointer ${
+              className={`flex h-12 w-12 mx-auto z-40 mt-36 mobile-375:mt-40 mobile-410:mt-60 laptop:mt-40 desktop:mt-60 transition-opacity ease-in-out duration-700 cursor-pointer ${
                 scrolledToTop ? "opacity-100" : "opacity-0"
               }`}
               onClick={() =>
@@ -115,11 +118,12 @@ export const Content = ({ project, children }) => {
 export const CustomSection = ({ project, children }) => {
   const router = useRouter();
   const { pathname } = router;
+
   return (
     <Transition
       show={true}
       appear={true}
-      className={pathname === "/projects" && "w-full"}
+      className={pathname === "/projects" ? "w-full" : ""}
     >
       <Transition.Child
         enter="transition-opacity duration-500 delay-300 ease-in-out"
@@ -131,22 +135,22 @@ export const CustomSection = ({ project, children }) => {
       >
         <section
           className={`h-full w-full flex flex-col z-30 justify-between pt-12 ${
-            pathname !== "/projects/" && "laptop:justify-center"
+            pathname !== "/projects" && "laptop:justify-center"
           }`}
         >
           {children}
         </section>
         <div
           className={`justify-center mb-14 mt-20 ${
-             pathname === "/" ? "hidden" : "flex"
+            pathname === "/" ? "hidden" : "flex"
           }`}
         >
-          <span
+          {/* <span
             className="text-sm font-bold z-40 font-header cursor-pointer hover:border-b-2"
             onClick={() => window.scrollTo(0, 0)}
           >
             Back To Top
-          </span>
+          </span> */}
         </div>
       </Transition.Child>
     </Transition>
