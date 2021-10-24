@@ -25,8 +25,8 @@ export const SectionHeader = ({ contentRef, children }) => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, true);
   }, []);
-  
-  // *Manages the orange bg opacity on scroll 
+
+  // *Manages the orange bg opacity on scroll
   const handleScroll = () => {
     if (document.body.scrollTop <= 100) {
       setScrolledToTop(true);
@@ -159,20 +159,30 @@ export const CustomSection = ({ project, children }) => {
 
 export const ImageSection = ({ src, alt, project }) => {
   return (
-    <div
-      className={`${
-        project ? "h-48 w-full mt-6 px-3" : "w-48 h-48 mt-8 mb-8"
-      } items-center justify-center self-center mr-6 overflow-hidden`}
-    >
-      <div className="w-full h-full relative">
-        <Image
-          src={src}
-          alt={alt}
-          layout="fill"
-          objectFit="inherit"
-          className="rounded-tl-lg rounded-bl-lg"
-        />
-      </div>
-    </div>
+    <Transition show={true} appear={true}>
+      <Transition.Child
+        enter="transition-all duration-1000 delay-1200 ease-in-out"
+        enterFrom="opacity-0 translate-y-4"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-all duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        className="flex flex-col pr-6 tablet:pl-12"
+      >
+        <div
+          className={`relative items-center justify-center self-center overflow-hidden ${
+            project ? "h-36 mobile-360:h-56 mobile-410:h-72 tablet:h-80 tablet-md:h-96 w-full mt-6 px-3" : "w-48 h-48 mt-8 mb-8"
+          }`}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            layout="fill"
+            objectFit="inherit"
+            className="rounded-lg"
+          />
+        </div>
+      </Transition.Child>
+    </Transition>
   );
 };

@@ -61,7 +61,7 @@ export const SubHeader = ({ project, children }) => {
       >
         <h3
           className={`font-header font-bold tablet:px-12 ${
-            project ? "text-lg mt-8" : "text-2xl mt-10 mb-2 laptop:pl-12"
+            project ? "text-2xl mt-8" : "text-2xl mt-10 mb-2 laptop:pl-12"
           }`}
         >
           {children}
@@ -73,26 +73,24 @@ export const SubHeader = ({ project, children }) => {
 
 export const ProjectHeader = ({ title, subtitle, image, alt }) => {
   return (
-    <span className="flex flex-col pl-6 h-screen">
+    <span className="flex flex-col h-screen mb-20 laptop:mb-40 mt-60 tablet:mt-80 align-middle pl-6 tablet:pl-16 laptop:pl-36 desktop:pl-64">
       {/* Header and subtitle */}
-      <div className="flex flex-col mt-40 mb-12">
-        <span className={`font-header text-4xl font-bold`}>{title}</span>
-        <p className={`text-primary text-sm max-w-prose mt-4 pr-6`}>
+      <div className="flex flex-col mb-12">
+        <span className={`font-header text-4xl mobile-410:text-5xl tablet:text-6xl tablet-md:text-7xl max-w-xs tablet-lg:max-w-3xl desktop:max-w-6xl font-bold`}>{title}</span>
+        <p className={`text-primary text-sm tablet:text-base tablet-md:text-lg max-w-prose mt-4 pr-6`}>
           {subtitle}
         </p>
       </div>
 
       {/* Image */}
-      <div className="h-56 overflow-hidden">
-        <div className="w-full h-full relative">
-          <Image
-            src={image}
-            alt={alt}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-tl-lg rounded-bl-lg"
-          />
-        </div>
+      <div className="relative w-full h-screen ">
+        <Image
+          src={image}
+          alt={alt}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-tl-lg rounded-bl-lg"
+        />
       </div>
     </span>
   );

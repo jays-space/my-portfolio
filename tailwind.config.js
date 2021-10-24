@@ -8,15 +8,18 @@ module.exports = {
         "mobile-360": "360px",
         "mobile-375": "375px",
         "mobile-410": "410px",
-        "tablet": "630px",
+        tablet: "630px",
         "tablet-md": "768px",
         "tablet-lg": "980px",
-        'laptop': '1024px',
-        'desktop': '1280px',
+        laptop: "1024px",
+        desktop: "1280px",
+      },
+      height: {
+        98: "28rem",
       },
       zIndex: {
-        'n1': "-1",
-        '50': "50",
+        n1: "-1",
+        50: "50",
       },
       gradientColorStops: (theme) => ({
         primary: "#F64A00",

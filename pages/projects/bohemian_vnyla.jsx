@@ -20,7 +20,7 @@ const BohemianVnylaPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="screen flex flex-col">
+      <div className="screen flex flex-col w-screen">
         <ProjectHeader
           title="Bohemian VNYLA"
           subtitle="A nightlife experience management and curation app."
