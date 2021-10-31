@@ -256,22 +256,3 @@ const BohemianVnylaPage = () => {
 };
 
 export default BohemianVnylaPage;
-
-{
-  /* <span className="text-yellow-400">
-              After validating my hypothesis, I set out to build the app.
-              However, due to Covid-19, I had to set aside the project.
-              Nonetheless, I used the project as an engineering learning
-              experience.
-            </span> */
-}
-
-{
-  /* 
-              Since then, we have collaborated with venue managers, music
-              artists and promoters to provide consumer activity and behavior
-              data. We are currently in the process of improving, iterating and
-              most importantly learning to making sure our members as well as
-              enternatinment managers are satisfied.
-            </span> */
-}

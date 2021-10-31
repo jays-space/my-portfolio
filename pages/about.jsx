@@ -38,11 +38,11 @@ const AboutPage = () => {
             {/* Content */}
 
             {/* Profile image */}
-            <div className="profile_img_wrapper flex justify-center mb-20">
+            <div className="profile_img_wrapper flex justify-center mb-20 ">
               <img
                 src="/images/my_profile.png"
                 alt="Profile picture"
-                className="profile_img rounded-lg"
+                className="profile_img rounded-md tablet-md:rounded-lg w-80 mobile-360:w-96 tablet:w-auto"
               />
             </div>
 
@@ -60,12 +60,6 @@ const AboutPage = () => {
               naturally inquisitive, quite confident, and I’m continuously
               working on improving my abilities, one challenge at a time.
             </Paragraph>
-
-            {/* <Paragraph body>
-        I am defined by the work that I have produced, as well as what I want to
-        produce. The continual value add of my work moves on with me as my creativity
-        and ideas grow.
-      </Paragraph> */}
 
             <SubHeader>My Approach.</SubHeader>
 
@@ -91,15 +85,6 @@ const AboutPage = () => {
               interact with servers via APIs, using technologies such as React,
               React Redux, and Redux-Sagas.
             </Paragraph>
-
-            {/* <Paragraph body>
-        I find it rewarding to use my skills in contributing to building
-        meaningful and relevant products that solve some of the societal
-        challenges we face in local and global communities, especially with the
-        advent of the fourth industrial revolution.
-      </Paragraph> */}
-
-            {/* <span className="spacer my-5" /> */}
 
             <CustomLink url="/contact" title="Let's Talk More." />
           </Content>
