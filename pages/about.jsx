@@ -1,12 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Head from "next/head";
+import { Transition } from "@headlessui/react";
 
 //COMPONENTS
-import {
-  SectionHeader,
-  Content,
-  ImageSection,
-} from "../components/screen-utils.component";
+import { SectionHeader, Content } from "../components/screen-utils.component";
 import {
   CustomLink,
   Paragraph,
@@ -86,7 +83,18 @@ const AboutPage = () => {
               React Redux, and Redux-Sagas.
             </Paragraph>
 
-            <CustomLink url="/contact" title="Let's Talk More." />
+            <Transition show={true} appear={true}>
+              <Transition.Child
+                enter="transition-all duration-1000 delay-1200 ease-in-out"
+                enterFrom="opacity-0 translate-y-4"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition-all duration-150"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <CustomLink url="/contact" title="Let's Talk More." />
+              </Transition.Child>
+            </Transition>
           </Content>
         </section>
       </div>

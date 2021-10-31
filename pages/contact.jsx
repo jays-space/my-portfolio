@@ -56,10 +56,10 @@ const ContactPage = () => {
 
             <Transition show={true} appear={true} className="z-40">
               <Transition.Child
-                enter="transition-opacity duration-1000 delay-1200 ease-in-out"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-500"
+                enter="transition-all duration-1000 delay-1200 ease-in-out"
+                enterFrom="opacity-0 translate-y-4"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition-all duration-150"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
