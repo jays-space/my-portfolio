@@ -30,7 +30,7 @@ const MainNavigationBar = ({ children }) => {
       >
         <Link href={"/"}>
           <a
-            className={`home-link font-header font-bold text-sm ${
+            className={`home-link font-header font-bold text-sm cursor-pointer ${
               pathname === "/" || pathname === "/home"
                 ? "opacity-0"
                 : "opacity-100"
@@ -53,19 +53,19 @@ const MainNavigationBar = ({ children }) => {
         leaveTo="opacity-0"
       >
         <ul className="flex flex-col items-end font-header font-bold text-lg">
-          <li className="mb-2">
+          <li className="mb-2 cursor-pointer">
             <Link href="/about">
-              <a className="home-link ">About.</a>
+              <a className="nav-link ">About.</a>
             </Link>
           </li>
-          <li className="mb-2">
+          <li className="mb-2 cursor-pointer">
             <Link href="/projects/">
-              <a className="home-link">Projects.</a>
+              <a className="nav-link">Projects.</a>
             </Link>
           </li>
-          <li className="mb-2">
+          <li className="mb-2 cursor-pointer">
             <Link href="/contact">
-              <a className="home-link">Contact.</a>
+              <a className="nav-link">Contact.</a>
             </Link>
           </li>
         </ul>
@@ -84,7 +84,7 @@ const MainNavigationBar = ({ children }) => {
       >
         <Link href="/">
           <a
-            className={`home-link-bottom font-header font-bold text-lg ${
+            className={`home-link-bottom font-header font-bold text-lg cursor-pointer ${
               pathname === "/" || pathname === "/home"
                 ? "opacity-0"
                 : "opacity-100"

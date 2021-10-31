@@ -38,7 +38,13 @@ const AboutPage = () => {
             {/* Content */}
 
             {/* Profile image */}
-            {/* <ImageSection src="/images/profile.png" alt="Profile picture" /> */}
+            <div className="profile_img_wrapper flex justify-center mb-20">
+              <img
+                src="/images/my_profile.png"
+                alt="Profile picture"
+                className="profile_img rounded-lg"
+              />
+            </div>
 
             {/* Caption */}
             <Paragraph caption>

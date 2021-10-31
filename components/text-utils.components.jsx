@@ -48,36 +48,63 @@ export const MainHeader = ({ greeting, noMargin, stagger, children }) => {
   );
 };
 
-export const SubHeader = ({ project, children }) => {
-  return (
-    <Transition show={true} appear={true}>
-      <Transition.Child
-        enter="transition-all duration-1000 delay-1200 ease-in-out"
-        enterFrom="opacity-0 translate-y-4"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition-all duration-150"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <h3
-          className={`font-header font-bold tablet:px-12 ${
-            project ? "text-2xl mt-8" : "text-2xl mt-10 mb-2 laptop:pl-12"
-          }`}
+export const SubHeader = ({ project, introHeader, children }) => {
+  if (introHeader) {
+    return (
+      <Transition show={true} appear={true}>
+        <Transition.Child
+          enter="transition-all duration-1000 delay-1200 ease-in-out"
+          enterFrom="opacity-0 translate-y-4"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition-all duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
-          {children}
-        </h3>
-      </Transition.Child>
-    </Transition>
-  );
+          <h2
+            className={`font-header font-bold tablet:px-12 text-3xl tablet:text-4xl mt-10 mb-4 tablet:mb-10 laptop:pl-12`}
+          >
+            {children}
+          </h2>
+        </Transition.Child>
+      </Transition>
+    );
+  } else {
+    return (
+      <Transition show={true} appear={true}>
+        <Transition.Child
+          enter="transition-all duration-1000 delay-1200 ease-in-out"
+          enterFrom="opacity-0 translate-y-4"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition-all duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <h3
+            className={`font-header mb-2 font-bold tablet:px-12 ${
+              project ? "text-2xl mt-16" : "text-2xl mt-10 laptop:pl-12"
+            }`}
+          >
+            {children}
+          </h3>
+        </Transition.Child>
+      </Transition>
+    );
+  }
 };
 
 export const ProjectHeader = ({ title, subtitle, image, alt }) => {
   return (
     <span className="flex flex-col h-screen mb-20 laptop:mb-40 mt-60 tablet:mt-80 align-middle pl-6 tablet:pl-16 laptop:pl-36 desktop:pl-64">
       {/* Header and subtitle */}
-      <div className="flex flex-col mb-12">
-        <span className={`font-header text-4xl mobile-410:text-5xl tablet:text-6xl tablet-md:text-7xl max-w-xs tablet-lg:max-w-3xl desktop:max-w-6xl font-bold`}>{title}</span>
-        <p className={`text-primary text-sm tablet:text-base tablet-md:text-lg max-w-prose mt-4 pr-6`}>
+      <div className="flex flex-col mb-52">
+        <span
+          className={`font-header text-4xl mobile-410:text-5xl tablet:text-6xl tablet-md:text-7xl max-w-xs tablet-lg:max-w-3xl desktop:max-w-6xl font-bold`}
+        >
+          {title}
+        </span>
+        <p
+          className={`text-primary text-sm tablet:text-base tablet-md:text-lg max-w-prose mt-4 pr-6`}
+        >
           {subtitle}
         </p>
       </div>
@@ -127,6 +154,7 @@ export const CustomLink = ({ url, title, header, newTab, noPadding }) => {
 export const Paragraph = ({
   caption,
   hero,
+  projectIntro,
   justify,
   body,
   project,
@@ -155,6 +183,26 @@ export const Paragraph = ({
         </Transition.Child>
       </Transition>
     );
+  } else if (projectIntro) {
+    return (
+      <Transition show={true} appear={true} className="tablet:px-12">
+        <Transition.Child
+          enter="transition-all duration-1000 delay-1200 ease-in-out"
+          enterFrom="opacity-0 translate-y-4"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition-opacity duration-1000"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <p
+            className={`font-body text-xl max-w-3xl laptop:text-2xl mt-2 mb-10 pr-6
+              italic text-gray-500`}
+          >
+            {children}
+          </p>
+        </Transition.Child>
+      </Transition>
+    );
   } else {
     return (
       <Transition show={true} appear={true} className="tablet:px-12">
@@ -167,7 +215,7 @@ export const Paragraph = ({
           leaveTo="opacity-0"
         >
           <p
-            className={`font-body text-base max-w-3xl laptop:text-lg ${
+            className={`font-body text-base min-w-min pr-10 mobile-360:max-w-screen-mobile-360  mobile-410:max-w-3xl laptop:text-lg ${
               body ? "mb-8 pr-6" : "my-4"
             } ${project && "mt-2 mb-4 pr-6"} ${
               caption && "italic text-gray-500 font-semibold pr-6"

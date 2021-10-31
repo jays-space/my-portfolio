@@ -107,7 +107,7 @@ export const Content = ({ project, children }) => {
     <section
       className={`min-h-screen flex flex-col pl-6 items-start justify-center ${
         pathname !== "/projects" && "laptop:items-center"
-      }   bg-black mb-1`}
+      } bg-black mb-1`}
     >
       <CustomSection project={project}>{children}</CustomSection>
       {/* <div className="orange-bg fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-primary via-primary" /> */}
@@ -167,11 +167,13 @@ export const ImageSection = ({ src, alt, project }) => {
         leave="transition-all duration-150"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
-        className="flex flex-col pr-6 tablet:pl-12"
+        className="flex mt-12 mb-20 flex-col pr-6 tablet:pl-12"
       >
         <div
           className={`relative items-center justify-center self-center overflow-hidden ${
-            project ? "h-36 mobile-360:h-56 mobile-410:h-72 tablet:h-80 tablet-md:h-96 w-full mt-6 px-3" : "w-48 h-48 mt-8 mb-8"
+            project
+              ? "h-36 mobile-360:h-56 mobile-410:h-72 tablet:h-80 tablet-md:h-96 w-full mt-6 px-3"
+              : "w-96 h-96 mt-8 mb-8"
           }`}
         >
           <Image

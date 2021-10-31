@@ -13,10 +13,7 @@ module.exports = {
         "tablet-lg": "980px",
         laptop: "1024px",
         desktop: "1280px",
-      },
-      height: {
-        98: "28rem",
-      },
+      },      
       zIndex: {
         n1: "-1",
         50: "50",
