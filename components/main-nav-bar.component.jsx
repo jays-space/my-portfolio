@@ -15,16 +15,16 @@ const MainNavigationBar = ({ children }) => {
 
   return (
     <nav
-      className={`flex flex-col justify-end w-screen pr-6 py-12 fixed z-50 transition-opacity duration-700 ease-in-out tablet-lg:justify-between tablet:pr-12 tablet-lg:pr-20 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0 desktop:pr-60 desktop:py-28`}
+      className={`flex flex-col justify-end w-screen pr-6 py-12 fixed z-50 transition-all duration-700 ease-in-out tablet-lg:justify-between tablet:pr-12 tablet-lg:pr-20 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0 desktop:pr-60 desktop:py-28`}
     >
       <Transition
         className="flex justify-end tablet-lg:hidden"
         show={true}
         appear={true}
-        enter="transition-opacity duration-700 ease-in-out"
+        enter="transition-all duration-700 ease-in-out"
         enterFrom="opacity-0"
         enterTo="opacity-100"
-        leave="transition-opacity duration-700"
+        leave="transition-all duration-700"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
@@ -45,10 +45,10 @@ const MainNavigationBar = ({ children }) => {
         className="nav-links hidden w-full justify-end tablet-lg:flex"
         show={true}
         appear={true}
-        enter="transition-opacity duration-700 ease-in-out"
+        enter="transition-all duration-700 ease-in-out"
         enterFrom="opacity-0"
         enterTo="opacity-100"
-        leave="transition-opacity duration-700"
+        leave="transition-all duration-700"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
@@ -75,10 +75,10 @@ const MainNavigationBar = ({ children }) => {
         className="hidden h-full justify-end items-end tablet-lg:flex"
         show={true}
         appear={true}
-        enter="transition-opacity duration-700 ease-in-out"
+        enter="transition-all duration-700 ease-in-out"
         enterFrom="opacity-0"
         enterTo="opacity-100"
-        leave="transition-opacity duration-700"
+        leave="transition-all duration-700"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >

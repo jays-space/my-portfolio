@@ -5,8 +5,8 @@ import "tailwindcss/tailwind.css";
 
 //COMPONENTS
 import NavigationBar from "../components/main-nav-bar.component";
-// import Footer from "../components/footer.component";
 // import TransitionLayout from "../components/screen-transitions.component";
+// import Footer from "../components/footer.component";
 
 //GLOBAL STYLES
 import "../styles.css";
