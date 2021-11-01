@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter, Router } from "next/router";
 import { Transition } from "@headlessui/react";
 
 /*
@@ -30,12 +30,21 @@ export const SectionHeader = ({ contentRef, children }) => {
   const handleScroll = () => {
     if (document.body.scrollTop <= 100) {
       setScrolledToTop(true);
-      console.log("position: ", scrolledToTop);
     } else {
       setScrolledToTop(false);
-      console.log("position: ", scrolledToTop);
     }
   };
+
+  // useEffect(() => {
+  //   window.history.scrollRestoration = "manual";
+  //   Router.events.on("routeChangeComplete", () => {
+  //     window.scroll({
+  //       top: 0,
+  //       left: 0,
+  //       behavior: "smooth",
+  //     });
+  //   });
+  // }, []);
 
   return (
     <section className="header-section h-screen">
@@ -134,7 +143,7 @@ export const CustomSection = ({ project, children }) => {
         leaveTo="opacity-0"
       >
         <section
-          className={`h-full w-full flex flex-col z-30 justify-between pt-12 overflow-x-hidden ${
+          className={`h-full w-full flex flex-col z-30 justify-between pt-12 overflow-hidden ${
             pathname !== "/projects" && "laptop:justify-center"
           }`}
         >
