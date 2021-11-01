@@ -15,7 +15,11 @@ import {
 
 //IMAGES
 import bohemian_vnyla_img from "../../public/images/bohemian_vnyla.png";
-import { BOHEMIAN_VNYLA_PROJECT_IMAGES } from "../../constants/projects-images.constants";
+import {
+  BOHEMIAN_VNYLA_UI_IMAGES,
+  BOHEMIAN_VNYLA_WEBSITE_IMAGES,
+  BOHEMIAN_VNYLA_LANDING
+} from "../../constants/projects-images.constants";
 
 const BohemianVnylaPage = () => {
   return (
@@ -61,7 +65,10 @@ const BohemianVnylaPage = () => {
             before committing time and money to visiting them. "Consumer regret"
             sets in pretty quickly if reality does not meet expectation.
           </Paragraph>
-          <ImageSection project src={bohemian_vnyla_img} alt="image" />
+         
+          {/* Bohemian VNYLA - image */}
+          <ProjectImages images={BOHEMIAN_VNYLA_LANDING} />
+
           {/* SubHeader */}
           <SubHeader project>Problem Definition</SubHeader>
           <Paragraph body project>
@@ -159,6 +166,10 @@ const BohemianVnylaPage = () => {
           <Paragraph body project>
             The website was developed using HTML, CSS, Bootstrap and JavaScript.
           </Paragraph>
+
+          {/* website-image */}
+          <ProjectImages images={BOHEMIAN_VNYLA_WEBSITE_IMAGES} />
+
           {/* SubHeader */}
           <SubHeader project>Validation Data</SubHeader>
           <Paragraph body project>
@@ -252,7 +263,7 @@ const BohemianVnylaPage = () => {
           </Paragraph>
 
           {/* ui-images */}
-          <ProjectImages images={BOHEMIAN_VNYLA_PROJECT_IMAGES} />
+          <ProjectImages images={BOHEMIAN_VNYLA_UI_IMAGES} />
 
           <Paragraph body project>
             The front-end was built using JavaScript (JS) technologies,
