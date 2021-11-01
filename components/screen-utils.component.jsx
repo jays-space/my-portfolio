@@ -134,7 +134,7 @@ export const CustomSection = ({ project, children }) => {
         leaveTo="opacity-0"
       >
         <section
-          className={`h-full w-full flex flex-col z-30 justify-between pt-12 ${
+          className={`h-full w-full flex flex-col z-30 justify-between pt-12 overflow-x-hidden ${
             pathname !== "/projects" && "laptop:justify-center"
           }`}
         >
@@ -186,5 +186,20 @@ export const ImageSection = ({ src, alt, project }) => {
         </div>
       </Transition.Child>
     </Transition>
+  );
+};
+
+export const ProjectImages = ({ images }) => {
+  return (
+    <div className="project_images_gallery flex flex-col items-center self-center my-20 space-y-10 max-w-3xl">
+      {images.map(({ src, alt }, idx) => (
+        <img
+          key={idx}
+          src={src}
+          alt={alt}
+          className="rounded-md tablet-md:rounded-lg w-80 mobile-360:w-96 tablet:w-auto border-2 border-gray-300"
+        />
+      ))}
+    </div>
   );
 };

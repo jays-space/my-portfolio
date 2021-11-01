@@ -2,7 +2,11 @@ import React from "react";
 import Head from "next/head";
 
 //COMPONENTS
-import { Content, ImageSection } from "../../components/screen-utils.component";
+import {
+  Content,
+  ImageSection,
+  ProjectImages,
+} from "../../components/screen-utils.component";
 import {
   Paragraph,
   ProjectHeader,
@@ -11,6 +15,7 @@ import {
 
 //IMAGES
 import bohemian_vnyla_img from "../../public/images/bohemian_vnyla.png";
+import { BOHEMIAN_VNYLA_PROJECT_IMAGES } from "../../constants/projects-images.constants";
 
 const BohemianVnylaPage = () => {
   return (
@@ -44,6 +49,7 @@ const BohemianVnylaPage = () => {
             to close out a lack of variety in night-time entertainment
             experiences.
           </Paragraph>
+
           {/* SubHeader */}
           <Paragraph body project>
             As a young person and an avid lover of going out at night and
@@ -76,6 +82,7 @@ const BohemianVnylaPage = () => {
             liquor production, and security to name a few - accounted for a
             large portion of the Gross Domestic Product (GDP).
           </Paragraph>
+
           {/* SubHeader */}
           <SubHeader project>Research</SubHeader>
           <Paragraph body project>
@@ -94,6 +101,7 @@ const BohemianVnylaPage = () => {
             nonetheless. A fair sized number of this segment also developed a
             "Fear Of Missing Out" (FOMO).
           </Paragraph>
+
           {/* SubHeader */}
           <SubHeader project>Hypotheses</SubHeader>
           <ul className="list-disc list-outside pl-10 max-w-3xl">
@@ -136,6 +144,7 @@ const BohemianVnylaPage = () => {
               </li>
             </Paragraph>
           </ul>
+
           {/* SubHeader */}
           <SubHeader project>Website Validation</SubHeader>
           <Paragraph body project>
@@ -199,6 +208,7 @@ const BohemianVnylaPage = () => {
               </li>
             </Paragraph>
           </ul>
+
           {/* SubHeader */}
           <SubHeader project>Core Product</SubHeader>
           <Paragraph body project>
@@ -226,16 +236,41 @@ const BohemianVnylaPage = () => {
               </li>
             </Paragraph>
           </ul>
+
           {/* SubHeader */}
           <SubHeader project>Development</SubHeader>
           <Paragraph body project>
-            You can't train kids in a world where adults have no concept of what
-            science literacy is. The adults are gonna squash the creativity that
-            would manifest itself, because they're clueless about what it and
-            why it matters. But science can always benefit from the more brains
-            there are that are thinking about it - but that's true for any
-            field.
+            Over a period of four months, a web application that enabled
+            producers to manage products was designed and developed.
           </Paragraph>
+          <Paragraph body project>
+            The overall User Interface (UI) design took a contemporary
+            dashboard-esque layout. For the main navigation, specific categories
+            in which different products would be located were developed. Each
+            product page would then have a set of tabs to enable the user to
+            navigate and access various product data and settings.
+          </Paragraph>
+
+          {/* ui-images */}
+          <ProjectImages images={BOHEMIAN_VNYLA_PROJECT_IMAGES} />
+
+          <Paragraph body project>
+            The front-end was built using JavaScript (JS) technologies,
+            including Node.js. React.js was the library of choice. For page
+            routing, React Router was used. React Redux and Redux Saga were
+            implemented for state as well as side effect and external API
+            management respectively. Formik was used for form management and
+            design, and Yup for form validation. Material UI along with its CSS
+            in JS implementation were used as a basis for design.
+          </Paragraph>
+
+          <Paragraph body project>
+            For back-end integration, a serverless architecture was implemented.
+            Amazon Web Services (AWS) Amplify along with GraphQL were used. AWS
+            Cognito for authentication, Dynamo DB for the database, S3 Buckets
+            for image storage and management.
+          </Paragraph>
+
           {/* SubHeader */}
           <SubHeader project>What's Next</SubHeader>
           <ul className="list-disc list-outside pl-10 max-w-3xl">
