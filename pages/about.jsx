@@ -55,7 +55,7 @@ const AboutPage = () => {
             <Paragraph caption>
               Skills can always be taught, but character is intrinsic. I'm
               naturally inquisitive, quite confident, and I’m continuously
-              working on improving my abilities, one challenge at a time.
+              working on improving my abilities.
             </Paragraph>
 
             <SubHeader>My Approach.</SubHeader>
@@ -72,15 +72,15 @@ const AboutPage = () => {
 
             <Paragraph body>
               I am a strong supporter of producing prototypes before fully
-              committing to coding. Each iteration of a prototype empowers the
-              team to establish a continuous feedback loop from stakeholders
-              about the product, at the soonest possible instance.
+              committing to coding. Each iteration of a prototype empowers a
+              team to establish a continuous feedback loop from stakeholders at
+              the soonest possible instance.
             </Paragraph>
 
             <Paragraph body>
               I am also experienced in building business logic systems, to
               interact with servers via APIs, using technologies such as React,
-              React Redux, and Redux-Sagas.
+              React Redux, and Redux-Saga.
             </Paragraph>
 
             <Transition show={true} appear={true}>
