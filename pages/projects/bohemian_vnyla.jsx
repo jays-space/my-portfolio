@@ -85,7 +85,7 @@ const BohemianVnylaPage = () => {
           </Paragraph>
           <Paragraph body project>
             It was discovered that there was little to no formal research to
-            describe night-time entertainement activities, much less commercial
+            describe night-time entertainment activities, much less commercial
             activities. However it was found that the entertainment industry as
             a whole - inclusive of supporting service industries such as
             transportation, beverage production and distribution, and security,
