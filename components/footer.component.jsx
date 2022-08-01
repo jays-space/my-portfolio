@@ -1,40 +1,41 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ROUTES } from "../constants/routes.constants";
+
+const FooterLink = ({ label, path }) => {
+  return (
+    <Link href={path}>
+      <span className="inline font-semibold text-base font-header px-2">
+        {label}
+      </span>
+    </Link>
+  );
+};
 
 const Footer = ({ children }) => {
   const route = useRouter();
   const { pathname } = route;
+
   return (
     <footer
-      className={`flex justify-end p-6 transition-opacity duration-300 delay-1200 ${
-        route.pathname === "/" || route.pathname === "/home" ? "opacity-0 hidden" : "opacity-100 visible"
-      } `}
+      className={`flex flex-col items-center justify-center p-6 z-50 bg-black transition-opacity duration-300 delay-1200 `}
     >
-      {/* {pathname === "/about" && (
-        <Link href="/projects/">
-          <span className="inline font-semibold text-base font-header border-b-2">
-            projects.
-          </span>
-        </Link>
-      )}
+      <FooterLink label="jays.space" path={"/"} />
 
-      {pathname === "/projects" && (
-        <Link href="/contact">
-          <span className="inline font-semibold text-base font-header border-b-2">
-            contact.
-          </span>
-        </Link>
-      )}
-      {pathname === "/contact" && (
-        <Link href="/about">
-          <span className="inline font-semibold text-base font-header border-b-2">
-            about.
-          </span>
-        </Link>
-      )} */}
+      <div className="flex flex-row items-center justify-center my-6">
+        {ROUTES.map((route, idx) => {
+          return (
+            <FooterLink key={idx} label={route?.label} path={route?.path} />
+          );
+        })}
+      </div>
     </footer>
   );
 };
 
 export default Footer;
+
+// ${
+//   route.pathname === "/" || route.pathname === "/home" ? "opacity-0 hidden" : "opacity-100 visible"
+// }

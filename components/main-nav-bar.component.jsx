@@ -18,7 +18,7 @@ const MainNavigationBar = ({ children }) => {
       className={`flex flex-col justify-end w-screen pr-6 py-12 fixed z-50 transition-all duration-700 ease-in-out tablet-lg:justify-between tablet:pr-12 tablet-lg:pr-20 tablet-lg:h-screen tablet-lg:w-max tablet-lg:right-0 desktop:pr-60 desktop:py-28`}
     >
       <Transition
-        className="flex justify-end tablet-lg:hidden"
+        className="flex pl-6 justify-end tablet-lg:hidden"
         show={true}
         appear={true}
         enter="transition-all duration-700 ease-in-out"
@@ -28,15 +28,11 @@ const MainNavigationBar = ({ children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Link href={"/"}>
+        <Link href={"/projects"}>
           <a
-            className={`home-link font-header font-bold text-sm cursor-pointer ${
-              pathname === "/" || pathname === "/home"
-                ? "opacity-0"
-                : "opacity-100"
-            }`}
+            className={`home-link font-header font-bold text-sm cursor-pointer`}
           >
-            jays.space.
+            projects
           </a>
         </Link>
       </Transition>

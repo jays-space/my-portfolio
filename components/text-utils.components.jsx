@@ -33,16 +33,42 @@ export const MainHeader = ({ greeting, noMargin, stagger, children }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <span className="text-sm mb-1 tablet:text-base desktop:text-lg">
+        <span className="text-base mb-1 desktop:text-lg">
           {greeting}
         </span>
         <h1
-          className={`font-header text-4xl mobile-410:text-5xl tablet:text-6xl tablet-md:text-7xl desktop:text-8xl tablet-lg:max-w-3xl desktop:max-w-6xl font-bold ${
+          className={`font-header text-5xl mobile-410:text-5xl tablet:text-6xl tablet-md:text-7xl desktop:text-8xl tablet-lg:max-w-3xl desktop:max-w-6xl font-bold ${
             noMargin ? "" : "mt-4"
           }`}
         >
           {children}
         </h1>
+      </Transition.Child>
+    </Transition>
+  );
+};
+
+// CTA Button
+export const CTAButton = ({ noMargin, stagger, children }) => {
+  return (
+    <Transition show={true} appear={true} className="tablet:px-12 laptop:px-36">
+      <Transition.Child
+        enter={`transition-all duration-1000 ease-in-out ${
+          stagger ? "delay-1400" : "delay-800"
+        }`}
+        enterFrom={`opacity-0 ${stagger ? "translate-y-4" : "translate-y-8"}`}
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-opacity duration-1000"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <button
+          className={`flex justify-center items-center px-4 py-2 font-header text-base mobile-410:text-base tablet:text-xl tablet-md:text-xl desktop:text-2xl tablet-lg:max-w-2xl desktop:max-w-2xl font-bold uppercase bg-primary ${
+            noMargin ? "" : "mt-4"
+          }`}
+        >
+          {children}
+        </button>
       </Transition.Child>
     </Transition>
   );

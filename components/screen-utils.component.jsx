@@ -49,7 +49,7 @@ export const SectionHeader = ({ contentRef, children }) => {
   return (
     <section className="header-section h-screen">
       <div
-        className={`fixed top-0 left-0 bg-primary w-screen h-screen transition-opacity duration-700 z-n1 ${
+        className={`fixed top-0 left-0 bg-primary h-screen transition-opacity duration-700 z-n1 ${
           scrolledToTop ? "opacity-100" : "opacity-0"
         }`}
       />
